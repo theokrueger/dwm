@@ -6,5 +6,5 @@ dont use this
 mod-shift-enter : urxvt
 mod-shift-f : palemoon
 mod-shift-g : pcmanfm
-mod-print : flameshot gui
-mod-shift-print : flameshot gui 2s delay
+mod-print : escrotum screenshot
+mod-shift-print : escrotum screenshot selection
