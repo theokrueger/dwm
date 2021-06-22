@@ -26,6 +26,7 @@ keep it simple, stupid.
 * coloured the titlebar pink
 
 ## keybinds
+default modkey is alt
 ### **applications**
 
 | key               | function     | requires        |
@@ -37,11 +38,13 @@ keep it simple, stupid.
 | media volume mute | media player | sayonara-player |
 
 ### **screenshot**
-| key             | function                          | requires |
-| --------------- | --------------------------------- | -------- |
-| mod-print       | screenshot                        | escrotum |
-| mod-shift-print | screenshot selection              | escrotum |
-| mod-ctrl-print  | screenshot selection to clipboard | escrotum |
+you need to modify your save directory in config.h for these to work as intended.
+| key                  | function                          | requires |
+| -------------------- | --------------------------------- | -------- |
+| mod-print            | screenshot                        | escrotum |
+| mod-shift-print      | screenshot selection              | escrotum |
+| mod-ctrl-print       | screenshot selection to clipboard | escrotum |
+| mod-ctrl-shift-print | screen record selection           | escrotum |
 
 ### **media-control**
 
@@ -56,6 +59,8 @@ keep it simple, stupid.
 # installation
 ## dependencies
 ### **required**
+* [dmenu](https://archlinux.org/packages/community/x86_64/dmenu/)
+    * optionally use [my fork](https://github.com/theokrueger/dmenu) instead
 * [freetype2](https://archlinux.org/packages/extra/x86_64/freetype2/)
 * [libx11](https://archlinux.org/packages/extra/x86_64/libx11/)
 * [libxft](https://archlinux.org/packages/extra/x86_64/libxft/)
@@ -63,20 +68,21 @@ keep it simple, stupid.
 * [rxvt](https://aur.archlinux.org/packages/rxvt/)
 
 ```
-$ sudo pacman -S freetype2 libx11 libxft libxinerama rxvt
+$ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama rxvt
 ```
 
 ### **optional**
-* [dmenu](https://archlinux.org/packages/community/x86_64/dmenu/)
-    * optionally use [my fork](https://github.com/theokrueger/dmenu) instead
 * [escrotum-git](https://aur.archlinux.org/packages/escrotum-git/)
 * [palemoon](https://aur.archlinux.org/packages/palemoon/)
+* [pcmanfm](https://archlinux.org/packages/community/x86_64/pcmanfm/)
 * [playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)
+* [sayonara-player](https://aur.archlinux.org/packages/sayonara-player/)
 
 ```
-$ sudo pacman -S dmenu playerctl
-$ yay palemoon
+$ sudo pacman -S dmenu pcmanfm playerctl
 $ yay escrotum-git
+$ yay palemoon
+$ yay sayonara-player
 ```
 
 # acknowledgements

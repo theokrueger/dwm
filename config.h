@@ -63,20 +63,23 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-/* added commands */
-static const char *termcmd[]     = { "urxvt", NULL };                                                                 // bound to mod-shift-enter
-static const char *pmcmd[]       = { "palemoon", NULL };                                                              // bound to mod-shift-f
-static const char *fmcmd[]       = { "pcmanfm", NULL };                                                               // bound to mod-shift-g
-static const char *ccmd[]        = { "code", NULL };                                                                  // bound to mod-shift-m
-static const char *sscmd[]       = { "escrotum", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };       // bound to mod-prtsc
-static const char *ssscmd[]      = { "escrotum", "-s", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL }; // bound to mod-shift-prtsc
-static const char *sssccmd[]     = { "escrotum", "-s", "-c", NULL };                                                  // bound to mod-ctrl-shift-prtsc
-static const char *pctlnextcmd[] = { "playerctl", "next", NULL };                                                     // bound to media next
-static const char *pctlprevcmd[] = { "playerctl", "previous", NULL };                                                 // bound to media previous
-static const char *pctlppcmd[]   = { "playerctl", "play-pause", NULL };                                               // bound to media play/pause
-static const char *pctluvolcmd[] = { "playerctl", "volume", "0.05+", NULL };                                          // bound to media volume up
-static const char *pctldvolcmd[] = { "playerctl", "volume", "0.05-", NULL };                                          // bound to media volume down
-static const char *mpcmd[]       = { "sayonara", NULL };                                                              // bound to media volume mute
+/* programs */
+static const char *termcmd[]     = { "urxvt", NULL };                                                                        // bound to mod-shift-enter
+static const char *pmcmd[]       = { "palemoon", NULL };                                                                     // bound to mod-shift-f
+static const char *fmcmd[]       = { "pcmanfm", NULL };                                                                      // bound to mod-shift-g
+static const char *ccmd[]        = { "code", NULL };                                                                         // bound to mod-shift-m
+/* screenshot */
+static const char *sscmd[]       = { "escrotum", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };              // bound to mod-prtsc
+static const char *ssscmd[]      = { "escrotum", "-s", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };        // bound to mod-shift-prtsc
+static const char *sssccmd[]     = { "escrotum", "-s", "-C", NULL };                                                         // bound to mod-ctrl-prtsc
+static const char *ssrscmd[]     = { "escrotum", "-s", "-r", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.webm", NULL }; // bound to mod-ctrl-shift-prtsc, stop with ctrl-alt-s
+/* media control */
+static const char *pctlnextcmd[] = { "playerctl", "next", NULL };                                                            // bound to media next
+static const char *pctlprevcmd[] = { "playerctl", "previous", NULL };                                                        // bound to media previous
+static const char *pctlppcmd[]   = { "playerctl", "play-pause", NULL };                                                      // bound to media play/pause
+static const char *pctluvolcmd[] = { "playerctl", "volume", "0.05+", NULL };                                                 // bound to media volume up
+static const char *pctldvolcmd[] = { "playerctl", "volume", "0.05-", NULL };                                                 // bound to media volume down
+static const char *mpcmd[]       = { "sayonara", NULL };                                                                     // bound to media volume mute
 /* default commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL };
@@ -86,10 +89,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = termcmd } },            // spawn urxvt (terminal)
 	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = pmcmd } },              // spawn palemoon (browser)
 	{ MODKEY|ShiftMask,             XK_g,                      spawn,          {.v = fmcmd } },              // spawn pcmanfm (file manager)
-	{ MODKEY|ShiftMask,             XK_m,                      spawn,          {.v = ccmd } },               // spawn code (vscode)
+	{ MODKEY|ShiftMask,             XK_m,                      spawn,          {.v = ccmd } },               // spawn editor (code)
 	{ MODKEY,                       XK_Print,                  spawn,          {.v = sscmd } },              // take screenshot of main screen (escrotum)
 	{ MODKEY|ShiftMask,             XK_Print,                  spawn,          {.v = ssscmd } },             // take screenshot with selection (escrotum)
-	{ MODKEY|ControlMask|ShiftMask, XK_Print,                  spawn,          {.v = sssccmd } },            // take screenshot with selection and only copy to clipboard (escrotum)
+	{ MODKEY|ControlMask,           XK_Print,                  spawn,          {.v = sssccmd } },            // take screenshot with selection and only copy to clipboard (escrotum)
+	{ MODKEY|ControlMask|ShiftMask, XK_Print,                  spawn,          {.v = ssrscmd } },            // record screen selection, stop with ctl ctrl-alt-s (escrotum)
 	{ 0,                            XF86XK_AudioNext,          spawn,          {.v = pctlnextcmd } },        // media player next entry (playerctl)
 	{ 0,                            XF86XK_AudioPrev,          spawn,          {.v = pctlprevcmd } },        // media player previous entry (playerctl)
 	{ 0,                            XF86XK_AudioPlay,          spawn,          {.v = pctlppcmd } },          // media player pause/play (playerctl)
