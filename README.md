@@ -3,7 +3,7 @@ personalised fork of [dwm](https://dwm.suckless.org/)
 
 designed for use by me, and as such will not make sense for anyone else
 
-i suggest making your own fork of dwm instead of using any other fork, as none of them will fit your use case as good as your own version will.
+i suggest making your own fork of dwm instead of using any other fork, as none of them will fit your use case as good as your own version will
 
 # directory
 - [philosophy](#philosophy)
@@ -37,11 +37,11 @@ keep it simple, stupid.
 | media volume mute | media player | sayonara-player |
 
 ### **screenshot**
-| key                  | function                          | requires |
-| -------------------- | --------------------------------- | -------- |
-| mod-print            | screenshot                        | escrotum |
-| mod-shift-print      | screenshot selection              | escrotum |
-| mod-ctrl-shift-print | screenshot selection to clipboard | escrotum |
+| key             | function                          | requires |
+| --------------- | --------------------------------- | -------- |
+| mod-print       | screenshot                        | escrotum |
+| mod-shift-print | screenshot selection              | escrotum |
+| mod-ctrl-print  | screenshot selection to clipboard | escrotum |
 
 ### **media-control**
 
@@ -56,9 +56,29 @@ keep it simple, stupid.
 # installation
 ## dependencies
 ### **required**
-to be added
+* [freetype2](https://archlinux.org/packages/extra/x86_64/freetype2/)
+* [libx11](https://archlinux.org/packages/extra/x86_64/libx11/)
+* [libxft](https://archlinux.org/packages/extra/x86_64/libxft/)
+* [libxinerama](https://archlinux.org/packages/extra/x86_64/libxinerama/)
+* [rxvt](https://aur.archlinux.org/packages/rxvt/)
+
+```
+$ sudo pacman -S freetype2 libx11 libxft libxinerama rxvt
+```
+
 ### **optional**
-to be added
+* [dmenu](https://archlinux.org/packages/community/x86_64/dmenu/)
+    * optionally use [my fork](https://github.com/theokrueger/dmenu) instead
+* [escrotum-git](https://aur.archlinux.org/packages/escrotum-git/)
+* [palemoon](https://aur.archlinux.org/packages/palemoon/)
+* [playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)
+
+```
+$ sudo pacman -S dmenu playerctl
+$ yay palemoon
+$ yay escrotum-git
+```
+
 # acknowledgements
 [suckless.org](https://suckless.org/) for [dwm](https://dwm.suckless.org/)
 
