@@ -95,7 +95,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioPlay,          spawn,          {.v = pctlppcmd } },          // media player pause/play (playerctl)
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          {.v = pctluvolcmd } },        // media player increase volume by .05 (playerctl)
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn,          {.v = pctldvolcmd } },        // media player decrease volume by .05 (playerctl)
-	{ 0,                            XF86XK_AudioMute,          spawn,          {.v = mpcmd } },        // spawn sayonara (audio player)
+	{ 0,                            XF86XK_AudioMute,          spawn,          {.v = mpcmd } },              // spawn sayonara (audio player)
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
