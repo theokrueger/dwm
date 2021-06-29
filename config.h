@@ -27,7 +27,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -100,6 +100,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          {.v = pctluvolcmd } },        // media player increase volume by .05 (playerctl)
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn,          {.v = pctldvolcmd } },        // media player decrease volume by .05 (playerctl)
 	{ 0,                            XF86XK_AudioMute,          spawn,          {.v = mpcmd } },              // spawn sayonara (audio player)
+	{ MODKEY,                       XK_6,                      view,           {.ui = ~0 } },                // duplicate of XK_0
+	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } },                // duplicate of XK_0
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
@@ -128,10 +130,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                                      2)
 	TAGKEYS(                        XK_4,                                      3)
 	TAGKEYS(                        XK_5,                                      4)
+	/* remove tags 6-9
 	TAGKEYS(                        XK_6,                                      5)
 	TAGKEYS(                        XK_7,                                      6)
 	TAGKEYS(                        XK_8,                                      7)
 	TAGKEYS(                        XK_9,                                      8)
+	*/
 	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} },
 };
 
