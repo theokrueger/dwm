@@ -26,11 +26,12 @@ keep it simple, stupid.
 # customisations
 ## visual
 * pink colour scheme
-* tiling indicator from ascii icons to 2 letters
-    * "[]=" -> tl
-    * "><>" -> fl
-    * "[M]" -> fs
+* tiling indicator text changed
+    * tile: "[]=" -> "tl"
+    * float: "><>" -> "fl"
+    * monocole: "[M]" -> "fs"
 * removed numbers from tags
+* status is drawn on all monitors
 
 ## functional
 * tags 9 -> 5
