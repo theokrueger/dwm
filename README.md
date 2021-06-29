@@ -9,7 +9,9 @@ i suggest making your own fork of dwm instead of using any other fork, as none o
 - [philosophy](#philosophy)
 - [customisations](#customisations)
     - [visual](#visual)
+    - [functional](#functional)
     - [keybinds](#keybinds)
+        - [windowing](#windowing)
         - [applications](#applications)
         - [screenshot](#screenshot)
         - [media-control](#media-control)
@@ -23,10 +25,27 @@ i suggest making your own fork of dwm instead of using any other fork, as none o
 keep it simple, stupid.
 # customisations
 ## visual
-* coloured the titlebar pink
+* pink colour scheme
+* tiling indicator from ascii icons to 2 letters
+    * "[]=" -> tl
+    * "><>" -> fl
+    * "[M]" -> fs
+* removed numbers from tags
+
+## functional
+* tags 9 -> 5
+* snap pixel 32px -> 16px
+* keybinds (see below)
 
 ## keybinds
 default modkey is alt
+
+### **windowing**
+
+| key   | function      | requires |
+| ----- | ------------- | -------- |
+| mod-6 | same as mod-0 | n/a      |
+
 ### **applications**
 
 | key               | function     | requires        |
@@ -68,10 +87,12 @@ you need to modify your save directory in config.h for these to work as intended
 * [rxvt](https://aur.archlinux.org/packages/rxvt/)
 
 ```
-$ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama rxvt
+$ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama rxvt-unicode
 ```
 
 ### **optional**
+* [dwm-status](https://dwm.suckless.org/status_monitor/)
+    * optionally use [my fork](https://github.com/theokrueger/dwm-bar) instead
 * [escrotum-git](https://aur.archlinux.org/packages/escrotum-git/)
 * [palemoon](https://aur.archlinux.org/packages/palemoon/)
 * [pcmanfm](https://archlinux.org/packages/community/x86_64/pcmanfm/)
@@ -79,10 +100,7 @@ $ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama rxvt
 * [sayonara-player](https://aur.archlinux.org/packages/sayonara-player/)
 
 ```
-$ sudo pacman -S dmenu pcmanfm playerctl
-$ yay escrotum-git
-$ yay palemoon
-$ yay sayonara-player
+$ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon sayonara-player
 ```
 
 # acknowledgements
