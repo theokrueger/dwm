@@ -37,6 +37,7 @@ keep it simple, stupid.
 * tags 9 -> 5
 * snap pixel 32px -> 16px
 * keybinds (see below)
+* added system tray patch
 
 ## keybinds
 default modkey is alt
@@ -105,6 +106,6 @@ $ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon sayonara-p
 ```
 
 # acknowledgements
-[suckless.org](https://suckless.org/) for [dwm](https://dwm.suckless.org/)
+[suckless.org](https://suckless.org/) for [dwm](https://dwm.suckless.org/) and [systray patch](https://dwm.suckless.org/patches/systray/)
 
 [freedesktop.org](https://freedesktop.org/) for [XF86keysym.h](https://cgit.freedesktop.org/xorg/proto/x11proto/tree/XF86keysym.h)
