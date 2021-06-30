@@ -12,7 +12,7 @@
 static const unsigned int borderpx       = 0;        /* border pixel of windows */
 static const unsigned int snap           = 16;       /* snap pixel */
 static const unsigned int systraypinning = 0;        /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft  = 0;   	 /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayonleft  = 1;   	 /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;        /* systray spacing */
 static const int systraypinningfailfirst = 1;        /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray             = 1;        /* 0 means no systray */
@@ -73,6 +73,8 @@ static const char *termcmd[]     = { "urxvt", NULL };                           
 static const char *pmcmd[]       = { "palemoon", NULL };                                                                     // bound to mod-shift-f
 static const char *fmcmd[]       = { "pcmanfm", NULL };                                                                      // bound to mod-shift-g
 static const char *ccmd[]        = { "code", NULL };                                                                         // bound to mod-shift-m
+static const char *dccmd[]       = { "discord", NULL };                                                                      // bound to mod-shift-d
+static const char *stcmd[]       = { "steam", NULL };                                                                        // bound to mod-shift-s
 /* screenshot */
 static const char *sscmd[]       = { "escrotum", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };              // bound to mod-prtsc
 static const char *ssscmd[]      = { "escrotum", "-s", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };        // bound to mod-shift-prtsc
@@ -91,10 +93,12 @@ static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufo
 
 static Key keys[] = {
 	/* added keys */
-	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = termcmd } },            // spawn urxvt (terminal)
-	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = pmcmd } },              // spawn palemoon (browser)
-	{ MODKEY|ShiftMask,             XK_g,                      spawn,          {.v = fmcmd } },              // spawn pcmanfm (file manager)
+	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = termcmd } },            // spawn terminal (rxvt-unicode)
+	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = pmcmd } },              // spawn browser (palemoon)
+	{ MODKEY|ShiftMask,             XK_g,                      spawn,          {.v = fmcmd } },              // spawn file manager (pcmanfm)
 	{ MODKEY|ShiftMask,             XK_m,                      spawn,          {.v = ccmd } },               // spawn editor (code)
+	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = dccmd } },              // spawn instant messenger (discord)
+	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = stcmd } },              // spawn game launcher (steam)
 	{ MODKEY,                       XK_Print,                  spawn,          {.v = sscmd } },              // take screenshot of main screen (escrotum)
 	{ MODKEY|ShiftMask,             XK_Print,                  spawn,          {.v = ssscmd } },             // take screenshot with selection (escrotum)
 	{ MODKEY|ControlMask,           XK_Print,                  spawn,          {.v = sssccmd } },            // take screenshot with selection and only copy to clipboard (escrotum)

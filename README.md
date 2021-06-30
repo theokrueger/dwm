@@ -50,13 +50,15 @@ default modkey is alt
 
 ### **applications**
 
-| key               | function     | requires        |
-| ----------------- | ------------ | --------------- |
-| mod-shift-enter   | terminal     | urxvt           |
-| mod-shift-f       | web browser  | palemoon        |
-| mod-shift-g       | file manager | pcmanfm         |
-| mod-shift-m       | text editor  | code            |
-| media volume mute | media player | sayonara-player |
+| key               | function          | requires        |
+| ----------------- | ----------------- | --------------- |
+| mod-shift-enter   | terminal          | urxvt           |
+| mod-shift-f       | web browser       | palemoon        |
+| mod-shift-g       | file manager      | pcmanfm         |
+| mod-shift-m       | text editor       | code            |
+| media volume mute | media player      | sayonara-player |
+| mod-shift-d       | instant messenger | discord         |
+| mod-shift-s       | game launcher     | steam           |
 
 ### **screenshot**
 you need to modify your save directory in config.h for these to work as intended.
@@ -102,7 +104,7 @@ $ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama rxvt-unicode
 * [sayonara-player](https://aur.archlinux.org/packages/sayonara-player/)
 
 ```
-$ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon sayonara-player
+$ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon sayonara-player steam discord
 ```
 
 # acknowledgements
