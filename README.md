@@ -39,17 +39,22 @@ keep it simple, stupid.
 * keybinds (see below)
 * added [system tray patch](https://dwm.suckless.org/patches/systray/)
 * added [actual fullscreen patch](https://dwm.suckless.org/patches/actualfullscreen/)
-* box indicator on tabs is rectangular
+* box indicator on tabs is rectangular and centered
 
 ## keybinds
 default modkey is alt
 
 ### **windowing**
 
-| key         | function          | requires |
-| ----------- | ----------------- | -------- |
-| mod-6       | same as mod-0     | n/a      |
-| mod-shift-m | toggle fullscreen | n/a      |
+| key                    | function                       | requires |
+| ---------------------- | ------------------------------ | -------- |
+| mod-6                  | same as mod-0                  | n/a      |
+| mod-shift-m            | toggle fullscreen              | n/a      |
+| mod-shift-leftbracket  | scale display to 0.534x0.7111* | xrandr   |
+| mod-shift-rightbracket | scale display to 0.75x1*       | xrandr   |
+| mod-shift-backslash    | scale display to 1:1*          | xrandr   |
+
+*requires setting display string in config.h
 
 ### **applications**
 
@@ -67,10 +72,12 @@ default modkey is alt
 you need to modify your save directory in config.h for these to work as intended.
 | key                  | function                          | requires |
 | -------------------- | --------------------------------- | -------- |
-| mod-print            | screenshot                        | escrotum |
-| mod-shift-print      | screenshot selection              | escrotum |
+| mod-print            | screenshot*                       | escrotum |
+| mod-shift-print      | screenshot selection*             | escrotum |
 | mod-ctrl-print       | screenshot selection to clipboard | escrotum |
-| mod-ctrl-shift-print | screen record selection           | escrotum |
+| mod-ctrl-shift-print | screen record selection*          | escrotum |
+
+*requires setting picture directory in config.h
 
 ### **media-control**
 

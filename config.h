@@ -75,6 +75,11 @@ static const char *fmcmd[]       = { "pcmanfm", NULL };                         
 static const char *ccmd[]        = { "code", NULL };                                                                         // bound to mod-shift-e
 static const char *dccmd[]       = { "discord", NULL };                                                                      // bound to mod-shift-d
 static const char *stcmd[]       = { "steam", NULL };                                                                        // bound to mod-shift-s
+/* display scaling */
+#define PRIMARYDISPLAYSTRING "DVI-D-0"
+static const char *normalscale[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "1x1", NULL };                    // bound to mod-shift-backslash
+static const char *weirdscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.75x1", NULL };                // bound to mod-shift-leftbracket
+static const char *stretscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.534x0.7111", NULL };           // bound to mod-shift-rightbracket
 /* screenshot */
 static const char *sscmd[]       = { "escrotum", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };              // bound to mod-prtsc
 static const char *ssscmd[]      = { "escrotum", "-s", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };        // bound to mod-shift-prtsc
@@ -112,6 +117,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_6,                      view,           {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },                        // toggles fullscreen on a window
+	{ MODKEY|ShiftMask,             XK_backslash,                 spawn,          {.v = normalscale } },        // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_bracketright,                 spawn,          {.v = weirdscale } },         // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_bracketleft,                 spawn,          {.v = stretscale } },         // changes display scaling sorta (xrandr)
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
