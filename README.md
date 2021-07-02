@@ -37,7 +37,8 @@ keep it simple, stupid.
 * tags 9 -> 5
 * snap pixel 32px -> 16px
 * keybinds (see below)
-* added system tray patch
+* added [system tray patch](https://dwm.suckless.org/patches/systray/)
+* box indicator on tabs is rectangular
 
 ## keybinds
 default modkey is alt
