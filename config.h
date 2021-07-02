@@ -77,14 +77,16 @@ static const char *dccmd[]       = { "discord", NULL };                         
 static const char *stcmd[]       = { "steam", NULL };                                                                        // bound to mod-shift-s
 /* display scaling */
 #define PRIMARYDISPLAYSTRING "DVI-D-0"
-static const char *normalscale[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "1x1", NULL };                    // bound to mod-shift-backslash
+static const char *normalscale[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "1x1", NULL };                   // bound to mod-shift-backslash
 static const char *weirdscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.75x1", NULL };                // bound to mod-shift-leftbracket
-static const char *stretscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.534x0.7111", NULL };           // bound to mod-shift-rightbracket
+static const char *stretscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.534x0.7111", NULL };          // bound to mod-shift-rightbracket
 /* screenshot */
-static const char *sscmd[]       = { "escrotum", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };              // bound to mod-prtsc
-static const char *ssscmd[]      = { "escrotum", "-s", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.png", NULL };        // bound to mod-shift-prtsc
+#define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"
+#define VIDEOSAVELOCATION "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm"
+static const char *sscmd[]       = { "escrotum", IMAGESAVELOCATION, NULL };                                                  // bound to mod-prtsc
+static const char *ssscmd[]      = { "escrotum", IMAGESAVELOCATION, "-s", NULL };                                            // bound to mod-shift-prtsc
 static const char *sssccmd[]     = { "escrotum", "-s", "-C", NULL };                                                         // bound to mod-ctrl-prtsc
-static const char *ssrscmd[]     = { "escrotum", "-s", "-r", "/home/theo/Pictures/screenshots/%y-%m-%d-%H%M%S.webm", NULL }; // bound to mod-ctrl-shift-prtsc, stop with ctrl-alt-s
+static const char *ssrscmd[]     = { "escrotum", VIDEOSAVELOCATION, "-s", "-r", NULL };                                      // bound to mod-ctrl-shift-prtsc, stop with ctrl-alt-s
 /* media control */
 static const char *pctlnextcmd[] = { "playerctl", "next", NULL };                                                            // bound to media next
 static const char *pctlprevcmd[] = { "playerctl", "previous", NULL };                                                        // bound to media previous
@@ -117,9 +119,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_6,                      view,           {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },                        // toggles fullscreen on a window
-	{ MODKEY|ShiftMask,             XK_backslash,                 spawn,          {.v = normalscale } },        // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_bracketright,                 spawn,          {.v = weirdscale } },         // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_bracketleft,                 spawn,          {.v = stretscale } },         // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_backslash,              spawn,          {.v = normalscale } },        // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_bracketright,           spawn,          {.v = weirdscale } },         // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_bracketleft,            spawn,          {.v = stretscale } },         // changes display scaling sorta (xrandr)
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },

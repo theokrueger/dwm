@@ -77,7 +77,7 @@ you need to modify your save directory in config.h for these to work as intended
 | mod-ctrl-print       | screenshot selection to clipboard | escrotum |
 | mod-ctrl-shift-print | screen record selection*          | escrotum |
 
-*requires setting picture directory in config.h
+*requires setting output directory in config.h
 
 ### **media-control**
 
