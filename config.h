@@ -72,7 +72,7 @@ static const Layout layouts[] = {
 static const char *termcmd[]     = { "urxvt", NULL };                                                                        // bound to mod-shift-enter
 static const char *pmcmd[]       = { "palemoon", NULL };                                                                     // bound to mod-shift-f
 static const char *fmcmd[]       = { "pcmanfm", NULL };                                                                      // bound to mod-shift-g
-static const char *ccmd[]        = { "code", NULL };                                                                         // bound to mod-shift-m
+static const char *ccmd[]        = { "code", NULL };                                                                         // bound to mod-shift-e
 static const char *dccmd[]       = { "discord", NULL };                                                                      // bound to mod-shift-d
 static const char *stcmd[]       = { "steam", NULL };                                                                        // bound to mod-shift-s
 /* screenshot */
@@ -96,7 +96,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = termcmd } },            // spawn terminal (rxvt-unicode)
 	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = pmcmd } },              // spawn browser (palemoon)
 	{ MODKEY|ShiftMask,             XK_g,                      spawn,          {.v = fmcmd } },              // spawn file manager (pcmanfm)
-	{ MODKEY|ShiftMask,             XK_m,                      spawn,          {.v = ccmd } },               // spawn editor (code)
+	{ MODKEY|ShiftMask,             XK_e,                      spawn,          {.v = ccmd } },               // spawn editor (code)
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = dccmd } },              // spawn instant messenger (discord)
 	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = stcmd } },              // spawn game launcher (steam)
 	{ MODKEY,                       XK_Print,                  spawn,          {.v = sscmd } },              // take screenshot of main screen (escrotum)
@@ -111,7 +111,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMute,          spawn,          {.v = mpcmd } },              // spawn sayonara (audio player)
 	{ MODKEY,                       XK_6,                      view,           {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } },                // duplicate of XK_0
-	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },                        // toggles fullscreen on an app
+	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },                        // toggles fullscreen on a window
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },

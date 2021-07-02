@@ -58,7 +58,7 @@ default modkey is alt
 | mod-shift-enter   | terminal          | urxvt           |
 | mod-shift-f       | web browser       | palemoon        |
 | mod-shift-g       | file manager      | pcmanfm         |
-| mod-shift-m       | text editor       | code            |
+| mod-shift-e       | text editor       | code            |
 | media volume mute | media player      | sayonara-player |
 | mod-shift-d       | instant messenger | discord         |
 | mod-shift-s       | game launcher     | steam           |
