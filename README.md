@@ -38,6 +38,7 @@ keep it simple, stupid.
 * snap pixel 32px -> 16px
 * keybinds (see below)
 * added [system tray patch](https://dwm.suckless.org/patches/systray/)
+* added [actual fullscreen patch](https://dwm.suckless.org/patches/actualfullscreen/)
 * box indicator on tabs is rectangular
 
 ## keybinds
@@ -45,9 +46,10 @@ default modkey is alt
 
 ### **windowing**
 
-| key   | function      | requires |
-| ----- | ------------- | -------- |
-| mod-6 | same as mod-0 | n/a      |
+| key         | function          | requires |
+| ----------- | ----------------- | -------- |
+| mod-6       | same as mod-0     | n/a      |
+| mod-shift-m | toggle fullscreen | n/a      |
 
 ### **applications**
 
@@ -109,6 +111,6 @@ $ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon sayonara-p
 ```
 
 # acknowledgements
-[suckless.org](https://suckless.org/) for [dwm](https://dwm.suckless.org/) and [systray patch](https://dwm.suckless.org/patches/systray/)
+[suckless.org](https://suckless.org/) for [dwm](https://dwm.suckless.org/), [actual fullscreen patch](https://dwm.suckless.org/patches/actualfullscreen/) and [systray patch](https://dwm.suckless.org/patches/systray/)
 
 [freedesktop.org](https://freedesktop.org/) for [XF86keysym.h](https://cgit.freedesktop.org/xorg/proto/x11proto/tree/XF86keysym.h)
