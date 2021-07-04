@@ -78,7 +78,7 @@ static const char *stcmd[]       = { "steam", NULL };                           
 /* display scaling */
 #define PRIMARYDISPLAYSTRING "DVI-D-0"
 static const char *normalscale[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "1x1", NULL };                   // bound to mod-shift-backslash
-static const char *weirdscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.75x1", NULL };                // bound to mod-shift-leftbracket
+static const char *weirdscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.667x.667", NULL };            // bound to mod-shift-leftbracket
 static const char *stretscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.534x0.7111", NULL };          // bound to mod-shift-rightbracket
 /* screenshot */
 #define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"
@@ -93,7 +93,7 @@ static const char *pctlprevcmd[] = { "playerctl", "previous", NULL };           
 static const char *pctlppcmd[]   = { "playerctl", "play-pause", NULL };                                                      // bound to media play/pause
 static const char *pctluvolcmd[] = { "playerctl", "volume", "0.05+", NULL };                                                 // bound to media volume up
 static const char *pctldvolcmd[] = { "playerctl", "volume", "0.05-", NULL };                                                 // bound to media volume down
-static const char *mpcmd[]       = { "sayonara", NULL };                                                                     // bound to media volume mute
+static const char *mpcmd[]       = { "elisa", NULL };                                                                     // bound to media volume mute
 /* default commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL };
@@ -115,7 +115,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioPlay,          spawn,          {.v = pctlppcmd } },          // media player pause/play (playerctl)
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          {.v = pctluvolcmd } },        // media player increase volume by .05 (playerctl)
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn,          {.v = pctldvolcmd } },        // media player decrease volume by .05 (playerctl)
-	{ 0,                            XF86XK_AudioMute,          spawn,          {.v = mpcmd } },              // spawn sayonara (audio player)
+	{ 0,                            XF86XK_AudioMute,          spawn,          {.v = mpcmd } },              // spawn audio player (elisa)
 	{ MODKEY,                       XK_6,                      view,           {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },                        // toggles fullscreen on a window

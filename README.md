@@ -58,15 +58,15 @@ default modkey is alt
 
 ### **applications**
 
-| key               | function          | requires        |
-| ----------------- | ----------------- | --------------- |
-| mod-shift-enter   | terminal          | urxvt           |
-| mod-shift-f       | web browser       | palemoon        |
-| mod-shift-g       | file manager      | pcmanfm         |
-| mod-shift-e       | text editor       | code            |
-| media volume mute | media player      | sayonara-player |
-| mod-shift-d       | instant messenger | discord         |
-| mod-shift-s       | game launcher     | steam           |
+| key               | function          | requires |
+| ----------------- | ----------------- | -------- |
+| mod-shift-enter   | terminal          | urxvt    |
+| mod-shift-f       | web browser       | palemoon |
+| mod-shift-g       | file manager      | pcmanfm  |
+| mod-shift-e       | text editor       | code     |
+| media volume mute | media player      | elisa    |
+| mod-shift-d       | instant messenger | discord  |
+| mod-shift-s       | game launcher     | steam    |
 
 ### **screenshot**
 you need to modify your save directory in config.h for these to work as intended.
@@ -111,10 +111,10 @@ $ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama rxvt-unicode
 * [palemoon](https://aur.archlinux.org/packages/palemoon/)
 * [pcmanfm](https://archlinux.org/packages/community/x86_64/pcmanfm/)
 * [playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)
-* [sayonara-player](https://aur.archlinux.org/packages/sayonara-player/)
+* [elisa](https://archlinux.org/packages/extra/x86_64/elisa/)
 
 ```
-$ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon sayonara-player steam discord
+$ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon elisa steam discord
 ```
 
 # acknowledgements
