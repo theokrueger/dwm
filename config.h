@@ -93,7 +93,7 @@ static const char *pctlprevcmd[] = { "playerctl", "previous", NULL };           
 static const char *pctlppcmd[]   = { "playerctl", "play-pause", NULL };                                                      // bound to media play/pause
 static const char *pctluvolcmd[] = { "playerctl", "volume", "0.05+", NULL };                                                 // bound to media volume up
 static const char *pctldvolcmd[] = { "playerctl", "volume", "0.05-", NULL };                                                 // bound to media volume down
-static const char *mpcmd[]       = { "elisa", NULL };                                                                     // bound to media volume mute
+static const char *mpcmd[]       = { "clementine", NULL };                                                                   // bound to media volume mute
 /* default commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL };
