@@ -69,31 +69,32 @@ static const Layout layouts[] = {
 
 /* commands */
 /* programs */
-static const char *termcmd[]     = { "urxvt", NULL };                                                                        // bound to mod-shift-enter
-static const char *pmcmd[]       = { "palemoon", NULL };                                                                     // bound to mod-shift-f
-static const char *fmcmd[]       = { "pcmanfm", NULL };                                                                      // bound to mod-shift-g
-static const char *ccmd[]        = { "code", NULL };                                                                         // bound to mod-shift-e
-static const char *dccmd[]       = { "discord", NULL };                                                                      // bound to mod-shift-d
-static const char *stcmd[]       = { "steam", NULL };                                                                        // bound to mod-shift-s
+static const char *termcmd[]     = { "urxvt", NULL };    // bound to mod-shift-enter
+static const char *pmcmd[]       = { "palemoon", NULL }; // bound to mod-shift-f
+static const char *fmcmd[]       = { "pcmanfm", NULL };  // bound to mod-shift-g
+static const char *ccmd[]        = { "code", NULL };     // bound to mod-shift-e
+static const char *dccmd[]       = { "discord", NULL };  // bound to mod-shift-d
+static const char *stcmd[]       = { "steam", NULL };    // bound to mod-shift-s
 /* display scaling */
-#define PRIMARYDISPLAYSTRING "DVI-D-0"
-static const char *normalscale[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", NULL };        // bound to mod-shift-backslash
-static const char *weirdscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", NULL };         // bound to mod-shift-leftbracket
-static const char *stretscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", NULL };         // bound to mod-shift-rightbracket
+#define PRIMARYDISPLAYSTRING     "DVI-D-0" // display to apply scaling keybinds to
+#define DISPLAYFILTERTYPE        "nearest" // change display scaling filtering. valid types: nearest,bilinear
+static const char *scale1080[]   = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-shift-backslash
+static const char *scale720[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-leftbracket
+static const char *scale768[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-rightbracket
 /* screenshot */
-#define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"
-#define VIDEOSAVELOCATION "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm"
-static const char *sscmd[]       = { "escrotum", IMAGESAVELOCATION, NULL };                                                  // bound to mod-prtsc
-static const char *ssscmd[]      = { "escrotum", IMAGESAVELOCATION, "-s", NULL };                                            // bound to mod-shift-prtsc
-static const char *sssccmd[]     = { "escrotum", "-s", "-C", NULL };                                                         // bound to mod-ctrl-prtsc
-static const char *ssrscmd[]     = { "escrotum", VIDEOSAVELOCATION, "-s", "-r", NULL };                                      // bound to mod-ctrl-shift-prtsc, stop with ctrl-alt-s
+#define IMAGESAVELOCATION        "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"           // save location, im too lazy to make it per user so have fun saving it to /home/theo/
+#define VIDEOSAVELOCATION        "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm" // escrotum is dumb and requires a .webm extension to save at all.
+static const char *sscmd[]       = { "escrotum", IMAGESAVELOCATION, NULL };             // bound to mod-prtsc
+static const char *ssscmd[]      = { "escrotum", IMAGESAVELOCATION, "-s", NULL };       // bound to mod-shift-prtsc
+static const char *sssccmd[]     = { "escrotum", "-s", "-C", NULL };                    // bound to mod-ctrl-prtsc
+static const char *ssrscmd[]     = { "escrotum", VIDEOSAVELOCATION, "-s", "-r", NULL }; // bound to mod-ctrl-shift-prtsc, stop with ctrl-alt-s
 /* media control */
-static const char *pctlnextcmd[] = { "playerctl", "next", NULL };                                                            // bound to media next
-static const char *pctlprevcmd[] = { "playerctl", "previous", NULL };                                                        // bound to media previous
-static const char *pctlppcmd[]   = { "playerctl", "play-pause", NULL };                                                      // bound to media play/pause
-static const char *pctluvolcmd[] = { "playerctl", "volume", "0.05+", NULL };                                                 // bound to media volume up
-static const char *pctldvolcmd[] = { "playerctl", "volume", "0.05-", NULL };                                                 // bound to media volume down
-static const char *mpcmd[]       = { "clementine", NULL };                                                                   // bound to media volume mute
+static const char *pctlnextcmd[] = { "playerctl", "next", NULL };            // bound to media next
+static const char *pctlprevcmd[] = { "playerctl", "previous", NULL };        // bound to media previous
+static const char *pctlppcmd[]   = { "playerctl", "play-pause", NULL };      // bound to media play/pause
+static const char *pctluvolcmd[] = { "playerctl", "volume", "0.05+", NULL }; // bound to media volume up
+static const char *pctldvolcmd[] = { "playerctl", "volume", "0.05-", NULL }; // bound to media volume down
+static const char *mpcmd[]       = { "clementine", NULL };                   // bound to media volume mute
 /* default commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL };
@@ -119,9 +120,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_6,                      view,           {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } },                // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },                        // toggles fullscreen on a window
-	{ MODKEY|ShiftMask,             XK_backslash,              spawn,          {.v = normalscale } },        // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_bracketright,           spawn,          {.v = weirdscale } },         // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_bracketleft,            spawn,          {.v = stretscale } },         // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_backslash,              spawn,          {.v = scale1080 } },          // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_bracketright,           spawn,          {.v = scale720 } },           // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_bracketleft,            spawn,          {.v = scale768 } },           // changes display scaling sorta (xrandr)
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
