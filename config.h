@@ -80,6 +80,7 @@ static const char *stcmd[]       = { "steam", NULL };    // bound to mod-shift-s
 #define DISPLAYFILTERTYPE        "nearest" // change display scaling filtering. valid types: nearest,bilinear
 static const char *scale1080[]   = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-shift-backslash
 static const char *scale720[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-leftbracket
+static const char *scale540[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-shift-quote
 static const char *scale768[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-rightbracket
 /* screenshot */
 #define IMAGESAVELOCATION        "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"           // save location, im too lazy to make it per user so have fun saving it to /home/theo/
@@ -122,6 +123,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },                        // toggles fullscreen on a window
 	{ MODKEY|ShiftMask,             XK_backslash,              spawn,          {.v = scale1080 } },          // changes display scaling sorta (xrandr)
 	{ MODKEY|ShiftMask,             XK_bracketright,           spawn,          {.v = scale720 } },           // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_apostrophe,             spawn,          {.v = scale540 } },           // changes display scaling sorta (xrandr)
 	{ MODKEY|ShiftMask,             XK_bracketleft,            spawn,          {.v = scale768 } },           // changes display scaling sorta (xrandr)
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },

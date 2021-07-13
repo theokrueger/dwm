@@ -46,13 +46,14 @@ default modkey is alt
 
 ### **windowing**
 
-| key                    | function                       | requires |
-| ---------------------- | ------------------------------ | -------- |
-| mod-6                  | same as mod-0                  | n/a      |
-| mod-shift-m            | toggle fullscreen              | n/a      |
-| mod-shift-leftbracket  | scale display to 0.534x0.7111* | xrandr   |
-| mod-shift-rightbracket | scale display to 0.75x1*       | xrandr   |
-| mod-shift-backslash    | scale display to 1:1*          | xrandr   |
+| key                    | function                    | requires |
+| ---------------------- | --------------------------- | -------- |
+| mod-6                  | same as mod-0               | n/a      |
+| mod-shift-m            | toggle fullscreen           | n/a      |
+| mod-shift-leftbracket  | scale display to 1024x768*  | xrandr   |
+| mod-shift-rightbracket | scale display to 1280x720*  | xrandr   |
+| mod-shift-backslash    | scale display to 1920x1080* | xrandr   |
+| mod-shift-apostrophe   | scale display to 960x540*   | xrandr   |
 
 *requires setting display string in config.h
 
