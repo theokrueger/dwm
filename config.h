@@ -77,9 +77,9 @@ static const char *dccmd[]       = { "discord", NULL };                         
 static const char *stcmd[]       = { "steam", NULL };                                                                        // bound to mod-shift-s
 /* display scaling */
 #define PRIMARYDISPLAYSTRING "DVI-D-0"
-static const char *normalscale[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "1x1", NULL };                   // bound to mod-shift-backslash
-static const char *weirdscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.667x.667", NULL };            // bound to mod-shift-leftbracket
-static const char *stretscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale", "0.534x0.7111", NULL };          // bound to mod-shift-rightbracket
+static const char *normalscale[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", NULL };        // bound to mod-shift-backslash
+static const char *weirdscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", NULL };         // bound to mod-shift-leftbracket
+static const char *stretscale[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", NULL };         // bound to mod-shift-rightbracket
 /* screenshot */
 #define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"
 #define VIDEOSAVELOCATION "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm"
