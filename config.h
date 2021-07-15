@@ -82,6 +82,7 @@ static const char *scale1080[]   = { "xrandr", "--output", PRIMARYDISPLAYSTRING,
 static const char *scale720[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-leftbracket
 static const char *scale540[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-shift-quote
 static const char *scale768[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-rightbracket
+static const char *scale480[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-shift-colon
 /* screenshot */
 #define IMAGESAVELOCATION        "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"           // save location, im too lazy to make it per user so have fun saving it to /home/theo/
 #define VIDEOSAVELOCATION        "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm" // escrotum is dumb and requires a .webm extension to save at all.
@@ -125,6 +126,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_bracketright,           spawn,          {.v = scale720 } },           // changes display scaling sorta (xrandr)
 	{ MODKEY|ShiftMask,             XK_apostrophe,             spawn,          {.v = scale540 } },           // changes display scaling sorta (xrandr)
 	{ MODKEY|ShiftMask,             XK_bracketleft,            spawn,          {.v = scale768 } },           // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_colon,                  spawn,          {.v = scale480 } },           // changes display scaling sorta (xrandr)
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
