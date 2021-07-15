@@ -126,7 +126,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_bracketright,           spawn,          {.v = scale720 } },           // changes display scaling sorta (xrandr)
 	{ MODKEY|ShiftMask,             XK_apostrophe,             spawn,          {.v = scale540 } },           // changes display scaling sorta (xrandr)
 	{ MODKEY|ShiftMask,             XK_bracketleft,            spawn,          {.v = scale768 } },           // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_colon,                  spawn,          {.v = scale480 } },           // changes display scaling sorta (xrandr)
+	{ MODKEY|ShiftMask,             XK_semicolon,              spawn,          {.v = scale480 } },           // changes display scaling sorta (xrandr)
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
