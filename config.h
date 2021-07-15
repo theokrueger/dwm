@@ -93,6 +93,9 @@ static const char *media_launch_player[] = { "clementine", NULL };              
 // this section is pain
 #define PRIMARYDISPLAYSTRING     "DVI-D-0" // display to apply resolution stuff to
 //static const char *scale1080[]   = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-shift-backslash
+#define GEN_XRANDR_RES(A,B,C) \
+	"xrandr", "--output", A, "--scale-from", B, "--filter", C, NULL
+static const char *scaletest[] = { GEN_XRANDR_RES(PRIMARYDISPLAYSTRING, "1440x1080", "nearest") };
 /* default commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL }; // launch dmenu
@@ -125,7 +128,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },         // toggles fullscreen on a window
 	/* resolution */
 	// bilinear
-	//{ MODKEY|ShiftMask,             XK_backslash,              spawn,          {.v = scale1080 } }, // 
+	{ MODKEY|ShiftMask,             XK_backslash,              spawn,          {.v = scaletest } }, // 
 	// nearest
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
