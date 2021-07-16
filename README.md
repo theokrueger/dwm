@@ -12,6 +12,10 @@ i suggest making your own fork of dwm instead of using any other fork, as none o
     - [functional](#functional)
     - [keybinds](#keybinds)
         - [windowing](#windowing)
+        - [resolution](#resolution)
+            - [modifiers](#modifiers)
+            - [relative](#relative)
+            - [absolute](#absolute)
         - [applications](#applications)
         - [screenshot](#screenshot)
         - [media-control](#media-control)
@@ -31,7 +35,6 @@ keep it simple, stupid.
     * float: "><>" -> "fl"
     * monocole: "[M]" -> "fs"
 * removed numbers from tags
-* status is drawn on all monitors
 
 ## functional
 * tags 9 -> 5
@@ -52,8 +55,26 @@ default modkey is alt
 | mod-shift-m | toggle fullscreen | n/a      |
 
 ### **resolution**
-keys are fully cusomisable, please visit the preprocessor stuff in config.h
-TODO add documentation
+in my configuration there are 37 different resolution changing keybinds.
+feed your display name and resolution into `config.h` and watch the preprocessor suffer!
+here is the general idea of how i set it up, modkey implied
+
+#### **modifiers**
+hold  
+hold ctrl
+#### **relative**
+modkey is implied
+| key         | resolution |
+| ----------- | ---------- |
+| mod-shift-m | t          |
+|             |            |
+
+#### **absolute**
+modkey is implied
+| key  | resolution |
+| ---- | ---------- |
+| num0 | default    |
+|  num    |            |
 
 ### **applications**
 
