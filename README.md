@@ -52,17 +52,8 @@ default modkey is alt
 | mod-shift-m | toggle fullscreen | n/a      |
 
 ### **resolution**
-
-| key                    | function                   | requires |
-| ---------------------- | -------------------------- | -------- |
-| mod-shift-leftbracket  | scale display to 1024x768  | xrandr   |
-| mod-shift-rightbracket | scale display to 1280x720  | xrandr   |
-| mod-shift-backslash    | scale display to 1920x1080 | xrandr   |
-| mod-shift-apostrophe   | scale display to 960x540   | xrandr   |
-| mod-shift-semiolon     | scale display to 640x480   | xrandr   |
-
-requires setting display string and resolution in config.h, additional options for scaling mode (nearest or bilinear)
-current 
+keys are fully cusomisable, please visit the preprocessor stuff in config.h
+TODO add documentation
 
 ### **applications**
 
