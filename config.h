@@ -64,12 +64,13 @@ static const Layout layouts[] = {
 /* commands */
 // note that due to my laziness this is actually suboptimal, having commands execute shell scripts instead would entail more extensibility and ease of modification.
 /* applications */
-static const char *app_terminal[]    = { "urxvt", NULL };    // bound to mod-shift-enter
-static const char *app_webbrowser[]  = { "palemoon", NULL }; // bound to mod-shift-f
-static const char *app_filemanager[] = { "pcmanfm", NULL };  // bound to mod-shift-g
-static const char *app_editor[]      = { "code", NULL };     // bound to mod-shift-e
-static const char *app_messenger[]   = { "discord", NULL };  // bound to mod-shift-d
-static const char *app_gamestore[]   = { "steam", NULL };    // bound to mod-shift-s
+static const char *app_terminal[]    = { "urxvt", NULL };       // bound to mod-shift-enter
+static const char *app_webbrowser[]  = { "palemoon", NULL };    // bound to mod-shift-f
+static const char *app_filemanager[] = { "pcmanfm", NULL };     // bound to mod-shift-g
+static const char *app_editor[]      = { "code", NULL };        // bound to mod-shift-e
+static const char *app_messenger[]   = { "discord", NULL };     // bound to mod-shift-d
+static const char *app_gamestore[]   = { "steam", NULL };       // bound to mod-shift-s
+static const char *app_emailclient[] = { "thunderbird", NULL }; // bound to mod-shift-t
 /* screenshot */
 #define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"           // save location, lazy edition
 #define VIDEOSAVELOCATION "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm" // escrotum is dumb and requires a .webm extension to save at all, god i wish i used shell scripts instead of this garbage
@@ -113,6 +114,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,                      spawn,          {.v = app_editor } },      // spawn editor (code)
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (discord)
 	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = app_gamestore } },   // spawn game launcher (steam)
+	{ MODKEY|ShiftMask,             XK_t,                      spawn,          {.v = app_emailclient } }, // spawn email client (thunderbird)
 	/* screenshot */
 	{ MODKEY,                       XK_Print,                  spawn,          {.v = screenshot_full } },             // take full screenshot (escrotum)
 	{ MODKEY|ShiftMask,             XK_Print,                  spawn,          {.v = screenshot_select } },           // take screenshot of selection (escrotum)
