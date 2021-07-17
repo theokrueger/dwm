@@ -31,10 +31,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class         instance      title   tags mask     isfloating   monitor */
-    {  "discord",    "discord",    NULL,   1,            0,           1 },
-	{  "Steam",      "Steam",      NULL,   1 << 1,       0,           1 },
-	{  "Clementine", "clementine", NULL,   1 << 2,       0,           1 },
+	/* class          instance      title   tags mask     isfloating   monitor */
+    {  "discord",     "discord",    NULL,   1,            0,           1 },
+	{  "Steam",       "Steam",      NULL,   1 << 1,       0,           1 },
+	{  "Clementine",  "clementine", NULL,   1 << 2,       0,           1 },
+	{  "Thunderbird", "Mail",       NULL,   1 << 3,       0,           1 },
 };
 
 /* layout(s) */
