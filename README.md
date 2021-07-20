@@ -45,7 +45,7 @@ keep it simple, stupid.
 * box indicator on tabs is rectangular and centered
 
 ## keybinds
-default modkey is os/windows
+default modkey is alt
 
 ### **windowing**
 
