@@ -100,9 +100,10 @@ static const char *scale540[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING,
 static const char *scale768[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-rightbracket
 static const char *scale480[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-shift-semicolon
 
-/* default commands */
+/* demenu commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL }; // launch dmenu
+static const char *dmenucmd[]     = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL };            // launch dmenu
+static const char *app_dmenu_nm[] = { "networkmanager_dmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL }; // launch dmenunm
 
 static Key keys[] = {
 	/* added keys */
@@ -115,6 +116,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (discord)
 	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = app_gamestore } },   // spawn game launcher (steam)
 	{ MODKEY|ShiftMask,             XK_t,                      spawn,          {.v = app_emailclient } }, // spawn email client (thunderbird)
+	{ MODKEY,                       XK_o,                      spawn,          {.v = app_dmenu_nm } },    // spawn networkmanager_dmenu
 	/* screenshot */
 	{ MODKEY,                       XK_Print,                  spawn,          {.v = screenshot_full } },             // take full screenshot (escrotum)
 	{ MODKEY|ShiftMask,             XK_Print,                  spawn,          {.v = screenshot_select } },           // take screenshot of selection (escrotum)
