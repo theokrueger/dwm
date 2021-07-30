@@ -55,9 +55,7 @@ default modkey is alt
 | mod-shift-m | toggle fullscreen | n/a      |
 
 ### **resolution**
-in my configuration there are 37 different resolution changing keybinds.
-feed your display name and resolution into `config.h` and watch the preprocessor suffer!
-here is the general idea of how i set it up, modkey implied
+press mod-ctrl-shift and a number to change it to somethings idk
 
 #### **modifiers**
 hold  

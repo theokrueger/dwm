@@ -92,13 +92,13 @@ static const char *media_volume_down[]   = { "playerctl", "volume", "0.05-", NUL
 #define XF86XK_AudioMute                 0x1008FF12
 static const char *media_launch_player[] = { "clementine", NULL };                   // bound to media volume mute
 /* display scaling */
-#define PRIMARYDISPLAYSTRING     "DVI-D-0" // display to apply scaling keybinds to
-#define DISPLAYFILTERTYPE        "nearest" // change display scaling filtering. valid types: nearest,bilinear
-static const char *scale1080[]   = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-shift-backslash
-static const char *scale720[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-leftbracket
-static const char *scale540[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-shift-quote
-static const char *scale768[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-shift-rightbracket
-static const char *scale480[]    = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-shift-semicolon
+#define PRIMARYDISPLAYSTRING "DVI-D-0" // display to apply scaling keybinds to
+#define DISPLAYFILTERTYPE    "nearest" // change display scaling filtering. valid types: nearest,bilinear
+static const char *scale1[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-ctrl-shift-number
+static const char *scale2[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-ctrl-shift-number
+static const char *scale3[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-ctrl-shift-number
+static const char *scale4[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-ctrl-shift-number
+static const char *scale5[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-ctrl-shift-number
 
 /* default commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -132,11 +132,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } }, // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },         // toggles fullscreen on a window
 	/* resolution */
-	{ MODKEY|ShiftMask,             XK_backslash,              spawn,          {.v = scale1080 } },          // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_bracketright,           spawn,          {.v = scale720 } },           // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_apostrophe,             spawn,          {.v = scale540 } },           // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_bracketleft,            spawn,          {.v = scale768 } },           // changes display scaling sorta (xrandr)
-	{ MODKEY|ShiftMask,             XK_semicolon,              spawn,          {.v = scale480 } },           // changes display scaling sorta (xrandr)
+	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale1 } }, // req xrandr
+	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale2 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale3 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale4 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale5 } },
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
