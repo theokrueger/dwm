@@ -144,10 +144,10 @@ static Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask, XK_r,                      spawn,          {.v = scale3 } },
 	{ MODKEY|ControlMask|ShiftMask, XK_t,                      spawn,          {.v = scale4 } },
 	/* rotation */
-	{ MODKEY|ControlMask|ShiftMask, XK_q,                      spawn,          {.v = rot0 } }, // req xrandr
-	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = rot1 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = rot2 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = rot3 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_Up,                     spawn,          {.v = rot0 } }, // req xrandr
+	{ MODKEY|ControlMask|ShiftMask, XK_Down,                   spawn,          {.v = rot1 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_Left,                   spawn,          {.v = rot2 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_Right,                  spawn,          {.v = rot3 } },
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
