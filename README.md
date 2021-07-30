@@ -55,7 +55,7 @@ default modkey is alt
 | mod-shift-m | toggle fullscreen | n/a      |
 
 ### **resolution**
-press mod-ctrl-shift and a number to change it to somethings idk
+press mod-ctrl-shift and a qwert to change it to somethings idk
 
 #### **modifiers**
 hold  

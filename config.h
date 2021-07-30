@@ -134,11 +134,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } }, // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },         // toggles fullscreen on a window
 	/* resolution */
-	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale1 } }, // req xrandr
-	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale2 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale3 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale4 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_0,                      spawn,          {.v = scale5 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,                      spawn,          {.v = scale1 } }, // req xrandr
+	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = scale2 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_e,                      spawn,          {.v = scale3 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_r,                      spawn,          {.v = scale4 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_t,                      spawn,          {.v = scale5 } },
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
