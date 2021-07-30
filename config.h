@@ -94,12 +94,16 @@ static const char *media_launch_player[] = { "clementine", NULL };              
 /* display scaling */
 #define PRIMARYDISPLAYSTRING "DVI-D-0" // display to apply scaling keybinds to
 #define DISPLAYFILTERTYPE    "nearest" // change display scaling filtering. valid types: nearest,bilinear
-static const char *scale1[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-ctrl-shift-number
-static const char *scale2[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };  // bound to mod-ctrl-shift-number
-static const char *scale3[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-ctrl-shift-number
-static const char *scale4[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-ctrl-shift-number
-static const char *scale5[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };   // bound to mod-ctrl-shift-number
-
+static const char *scale0[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-ctrl-shift- qwert
+static const char *scale1[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale2[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale3[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale4[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };
+/* display rotation */
+static const char *rot0[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "normal", NULL };   // bound to mod-ctrl-shift-arrow
+static const char *rot1[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "inverted", NULL };
+static const char *rot2[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "left", NULL };
+static const char *rot3[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "right", NULL };
 /* demenu commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]     = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL };            // launch dmenu
@@ -134,11 +138,16 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } }, // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },         // toggles fullscreen on a window
 	/* resolution */
-	{ MODKEY|ControlMask|ShiftMask, XK_q,                      spawn,          {.v = scale1 } }, // req xrandr
-	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = scale2 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_e,                      spawn,          {.v = scale3 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_r,                      spawn,          {.v = scale4 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_t,                      spawn,          {.v = scale5 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,                      spawn,          {.v = scale0 } }, // req xrandr
+	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = scale1 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_e,                      spawn,          {.v = scale2 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_r,                      spawn,          {.v = scale3 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_t,                      spawn,          {.v = scale4 } },
+	/* rotation */
+	{ MODKEY|ControlMask|ShiftMask, XK_q,                      spawn,          {.v = rot0 } }, // req xrandr
+	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = rot1 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = rot2 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = rot3 } },
 	/* default keys */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },

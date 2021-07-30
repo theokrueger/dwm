@@ -55,25 +55,9 @@ default modkey is alt
 | mod-shift-m | toggle fullscreen | n/a      |
 
 ### **resolution**
-press mod-ctrl-shift and a qwert to change it to somethings idk
-
-#### **modifiers**
-hold  
-hold ctrl
-#### **relative**
-modkey is implied
-| key         | resolution |
-| ----------- | ---------- |
-| mod-shift-m | t          |
-|             |            |
-
-#### **absolute**
-modkey is implied
-| key  | resolution |
-| ---- | ---------- |
-| num0 | default    |
-|  num    |            |
-
+press mod-ctrl-shift and a qwert to change resolution
+mod-ctrl-shift-arrow for rotations
+to be fixed l8r
 ### **applications**
 
 | key               | function          | requires |
