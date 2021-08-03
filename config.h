@@ -94,13 +94,20 @@ static const char *media_launch_player[] = { "clementine", NULL };              
 /* display scaling */
 #define PRIMARYDISPLAYSTRING "DVI-D-0" // display to apply scaling keybinds to
 #define DISPLAYFILTERTYPE    "nearest" // change display scaling filtering. valid types: nearest,bilinear
+// 16:9
 static const char *scale0[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-ctrl-shift- qwert
-static const char *scale1[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale1[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL };
 static const char *scale2[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL };
-static const char *scale3[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL };
-static const char *scale4[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale3[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "854x480", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale4[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x360", "--filter", DISPLAYFILTERTYPE, NULL };
+// 4:3
+static const char *scale5[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1440x1080", "--filter", DISPLAYFILTERTYPE, NULL }; // bound to mod-ctrl-shift- asdfg
+static const char *scale6[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x960", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale7[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale8[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL };
+static const char *scale9[]  = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL };
 /* display rotation */
-static const char *rot0[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "normal", NULL };   // bound to mod-ctrl-shift-arrow
+static const char *rot0[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "normal", NULL };    // bound to mod-ctrl-shift-arrow
 static const char *rot1[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "inverted", NULL };
 static const char *rot2[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "left", NULL };
 static const char *rot3[] = { "xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "right", NULL };
@@ -138,11 +145,18 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_6,                      tag,            {.ui = ~0 } }, // duplicate of XK_0
 	{ MODKEY|ShiftMask,             XK_m,                      togglefullscr,  {0} },         // toggles fullscreen on a window
 	/* resolution */
+	// 19:9
 	{ MODKEY|ControlMask|ShiftMask, XK_q,                      spawn,          {.v = scale0 } }, // req xrandr
 	{ MODKEY|ControlMask|ShiftMask, XK_w,                      spawn,          {.v = scale1 } },
 	{ MODKEY|ControlMask|ShiftMask, XK_e,                      spawn,          {.v = scale2 } },
 	{ MODKEY|ControlMask|ShiftMask, XK_r,                      spawn,          {.v = scale3 } },
 	{ MODKEY|ControlMask|ShiftMask, XK_t,                      spawn,          {.v = scale4 } },
+	// 4:3
+	{ MODKEY|ControlMask|ShiftMask, XK_a,                      spawn,          {.v = scale5 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_s,                      spawn,          {.v = scale6 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_d,                      spawn,          {.v = scale7 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_f,                      spawn,          {.v = scale8 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_g,                      spawn,          {.v = scale9 } },
 	/* rotation */
 	{ MODKEY|ControlMask|ShiftMask, XK_Up,                     spawn,          {.v = rot0 } }, // req xrandr
 	{ MODKEY|ControlMask|ShiftMask, XK_Down,                   spawn,          {.v = rot1 } },
