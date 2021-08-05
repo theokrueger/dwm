@@ -32,7 +32,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class          instance      title   tags mask     isfloating   monitor */
-    {  "discord",     "discord",    NULL,   1,            0,           1 },
+    {  "discord-canary",     "discord-canary",    NULL,   1,            0,           1 },
 	{  "Steam",       "Steam",      NULL,   1 << 1,       0,           1 },
 	{  "Clementine",  "clementine", NULL,   1 << 2,       0,           1 },
 	{  "Thunderbird", "Mail",       NULL,   1 << 3,       0,           1 },
@@ -68,7 +68,7 @@ static const char *app_terminal[]    = { "urxvt", NULL };       // bound to mod-
 static const char *app_webbrowser[]  = { "palemoon", NULL };    // bound to mod-shift-f
 static const char *app_filemanager[] = { "pcmanfm", NULL };     // bound to mod-shift-g
 static const char *app_editor[]      = { "code", NULL };        // bound to mod-shift-e
-static const char *app_messenger[]   = { "discord", NULL };     // bound to mod-shift-d
+static const char *app_messenger[]   = { "discord-canary", NULL };     // bound to mod-shift-d
 static const char *app_gamestore[]   = { "steam", NULL };       // bound to mod-shift-s
 static const char *app_emailclient[] = { "thunderbird", NULL }; // bound to mod-shift-t
 /* screenshot */
@@ -124,7 +124,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = app_webbrowser } },  // spawn browser (palemoon)
 	{ MODKEY|ShiftMask,             XK_g,                      spawn,          {.v = app_filemanager } }, // spawn file manager (pcmanfm)
 	{ MODKEY|ShiftMask,             XK_e,                      spawn,          {.v = app_editor } },      // spawn editor (code)
-	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (discord)
+	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (discord-canary)
 	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = app_gamestore } },   // spawn game launcher (steam)
 	{ MODKEY|ShiftMask,             XK_t,                      spawn,          {.v = app_emailclient } }, // spawn email client (thunderbird)
 	{ MODKEY,                       XK_o,                      spawn,          {.v = app_dmenu_nm } },    // spawn networkmanager_dmenu
