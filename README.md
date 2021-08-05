@@ -60,15 +60,15 @@ mod-ctrl-shift-arrow for rotations
 to be fixed l8r
 ### **applications**
 
-| key               | function          | requires |
-| ----------------- | ----------------- | -------- |
-| mod-shift-enter   | terminal          | urxvt    |
-| mod-shift-f       | web browser       | palemoon |
-| mod-shift-g       | file manager      | pcmanfm  |
-| mod-shift-e       | text editor       | code     |
-| media volume mute | media player      | elisa    |
-| mod-shift-d       | instant messenger | discord  |
-| mod-shift-s       | game launcher     | steam    |
+| key               | function          | requires  |
+| ----------------- | ----------------- | --------- |
+| mod-shift-enter   | terminal          | urxvt     |
+| mod-shift-f       | web browser       | palemoon  |
+| mod-shift-g       | file manager      | pcmanfm   |
+| mod-shift-e       | text editor       | code      |
+| media volume mute | media player      | elisa     |
+| mod-shift-d       | instant messenger | lightcord |
+| mod-shift-s       | game launcher     | steam     |
 
 ### **screenshot**
 you need to modify your save directory in config.h for these to work as intended.
