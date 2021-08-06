@@ -32,7 +32,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class          instance      title   tags mask     isfloating   monitor */
-    {  "lightcord",   "lightcord",  NULL,   1,            0,           1 },
+    {  "Ripcord",     "ripcord",    NULL,   1,            0,           1 },
 	{  "Steam",       "Steam",      NULL,   1 << 1,       0,           1 },
 	{  "Clementine",  "clementine", NULL,   1 << 2,       0,           1 },
 	{  "Thunderbird", "Mail",       NULL,   1 << 3,       0,           1 },
@@ -68,7 +68,7 @@ static const char *app_terminal[]    = { "urxvt", NULL };       // bound to mod-
 static const char *app_webbrowser[]  = { "palemoon", NULL };    // bound to mod-shift-f
 static const char *app_filemanager[] = { "pcmanfm", NULL };     // bound to mod-shift-g
 static const char *app_editor[]      = { "code", NULL };        // bound to mod-shift-e
-static const char *app_messenger[]   = { "lightcord", NULL };     // bound to mod-shift-d
+static const char *app_messenger[]   = { "ripcord", NULL };     // bound to mod-shift-d
 static const char *app_gamestore[]   = { "steam", NULL };       // bound to mod-shift-s
 static const char *app_emailclient[] = { "thunderbird", NULL }; // bound to mod-shift-t
 /* screenshot */
