@@ -120,14 +120,14 @@ static Key keys[] = {
 	/* added keys */
 	// commands i have added or modified from defaults
 	/* applications */
-	{ MODKEY,                       XK_Return,                 spawn,          {.v = app_terminal } },    // spawn terminal (rxvt-unicode)
-	{ MODKEY,                       XK_f,                      spawn,          {.v = app_webbrowser } },  // spawn browser (palemoon)
-	{ MODKEY,                       XK_g,                      spawn,          {.v = app_filemanager } }, // spawn file manager (pcmanfm)
-	{ MODKEY,                       XK_e,                      spawn,          {.v = app_editor } },      // spawn editor (code)
-	{ MODKEY,                       XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (lightcord)
-	{ MODKEY,                       XK_s,                      spawn,          {.v = app_gamestore } },   // spawn game launcher (steam)
-	{ MODKEY,                       XK_t,                      spawn,          {.v = app_emailclient } }, // spawn email client (thunderbird)
-	{ MODKEY,                       XK_o,                      spawn,          {.v = app_dmenu_nm } },    // spawn networkmanager_dmenu
+	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = app_terminal } },    // spawn terminal (rxvt-unicode)
+	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = app_webbrowser } },  // spawn browser (palemoon)
+	{ MODKEY|ShiftMask,             XK_g,                      spawn,          {.v = app_filemanager } }, // spawn file manager (pcmanfm)
+	{ MODKEY|ShiftMask,             XK_e,                      spawn,          {.v = app_editor } },      // spawn editor (code)
+	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (lightcord)
+	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = app_gamestore } },   // spawn game launcher (steam)
+	{ MODKEY|ShiftMask,             XK_t,                      spawn,          {.v = app_emailclient } }, // spawn email client (thunderbird)
+	{ MODKEY, XK_o, spawn, {.v = app_dmenu_nm } }, // spawn networkmanager_dmenu
 	/* screenshot */
 	{ MODKEY,                       XK_Print,                  spawn,          {.v = screenshot_full } },             // take full screenshot (escrotum)
 	{ MODKEY|ShiftMask,             XK_Print,                  spawn,          {.v = screenshot_select } },           // take screenshot of selection (escrotum)
