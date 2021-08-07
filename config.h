@@ -51,7 +51,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod3Mask // OS
+#define MODKEY Mod4Mask // OS
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -64,13 +64,13 @@ static const Layout layouts[] = {
 /* commands */
 // note that due to my laziness this is actually suboptimal, having commands execute shell scripts instead would entail more extensibility and ease of modification.
 /* applications */
-static const char *app_terminal[]    = { "urxvt", NULL };       // bound to mod-shift-enter
-static const char *app_webbrowser[]  = { "palemoon", NULL };    // bound to mod-shift-f
-static const char *app_filemanager[] = { "pcmanfm", NULL };     // bound to mod-shift-g
-static const char *app_editor[]      = { "code", NULL };        // bound to mod-shift-e
-static const char *app_messenger[]   = { "ripcord", NULL };     // bound to mod-shift-d
-static const char *app_gamestore[]   = { "steam", NULL };       // bound to mod-shift-s
-static const char *app_emailclient[] = { "thunderbird", NULL }; // bound to mod-shift-t
+static const char *app_terminal[]    = { "urxvt", NULL };       // bound to mod-enter
+static const char *app_webbrowser[]  = { "palemoon", NULL };    // bound to mod-f
+static const char *app_filemanager[] = { "pcmanfm", NULL };     // bound to mod-g
+static const char *app_editor[]      = { "code", NULL };        // bound to mod-e
+static const char *app_messenger[]   = { "ripcord", NULL };     // bound to mod-d
+static const char *app_gamestore[]   = { "steam", NULL };       // bound to mod-s
+static const char *app_emailclient[] = { "thunderbird", NULL }; // bound to mod-t
 /* screenshot */
 #define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"           // save location, lazy edition
 #define VIDEOSAVELOCATION "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm" // escrotum is dumb and requires a .webm extension to save at all, god i wish i used shell scripts instead of this garbage
@@ -120,13 +120,13 @@ static Key keys[] = {
 	/* added keys */
 	// commands i have added or modified from defaults
 	/* applications */
-	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = app_terminal } },    // spawn terminal (rxvt-unicode)
-	{ MODKEY|ShiftMask,             XK_f,                      spawn,          {.v = app_webbrowser } },  // spawn browser (palemoon)
-	{ MODKEY|ShiftMask,             XK_g,                      spawn,          {.v = app_filemanager } }, // spawn file manager (pcmanfm)
-	{ MODKEY|ShiftMask,             XK_e,                      spawn,          {.v = app_editor } },      // spawn editor (code)
-	{ MODKEY|ShiftMask,             XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (lightcord)
-	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = app_gamestore } },   // spawn game launcher (steam)
-	{ MODKEY|ShiftMask,             XK_t,                      spawn,          {.v = app_emailclient } }, // spawn email client (thunderbird)
+	{ MODKEY,                       XK_Return,                 spawn,          {.v = app_terminal } },    // spawn terminal (rxvt-unicode)
+	{ MODKEY,                       XK_f,                      spawn,          {.v = app_webbrowser } },  // spawn browser (palemoon)
+	{ MODKEY,                       XK_g,                      spawn,          {.v = app_filemanager } }, // spawn file manager (pcmanfm)
+	{ MODKEY,                       XK_e,                      spawn,          {.v = app_editor } },      // spawn editor (code)
+	{ MODKEY,                       XK_d,                      spawn,          {.v = app_messenger } },   // spawn instant messenger (lightcord)
+	{ MODKEY,                       XK_s,                      spawn,          {.v = app_gamestore } },   // spawn game launcher (steam)
+	{ MODKEY,                       XK_t,                      spawn,          {.v = app_emailclient } }, // spawn email client (thunderbird)
 	{ MODKEY,                       XK_o,                      spawn,          {.v = app_dmenu_nm } },    // spawn networkmanager_dmenu
 	/* screenshot */
 	{ MODKEY,                       XK_Print,                  spawn,          {.v = screenshot_full } },             // take full screenshot (escrotum)
@@ -173,7 +173,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return,                 zoom,           {0} },
 	{ MODKEY,                       XK_Tab,                    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,                      killclient,     {0} },
+	{ MODKEY,                       XK_c,                      killclient,     {0} },
 	{ MODKEY,                       XK_t,                      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,                      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,                      setlayout,      {.v = &layouts[2]} },
@@ -183,8 +183,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,                  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period,                 focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,                  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,                 tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_comma,                  tagmon,         {.i = -1 } },
+	{ MODKEY,                       XK_period,                 tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
@@ -196,7 +196,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                                      7)
 	TAGKEYS(                        XK_9,                                      8)
 	*/
-	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,                      quit,           {0} },
 };
 
 /* button definitions */
