@@ -32,10 +32,10 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class          instance      title   tags mask     isfloating   monitor */
-    {  "Ripcord",     "ripcord",    NULL,   1,            0,           1 },
-	{  "Steam",       "Steam",      NULL,   1 << 1,       0,           1 },
+	{  NULL,          "discord",    NULL,   1,            0,           1 },
+	{  NULL,          "Steam",      NULL,   1 << 1,       0,           1 },
 	{  "Clementine",  "clementine", NULL,   1 << 2,       0,           1 },
-	{  "Thunderbird", "Mail",       NULL,   1 << 3,       0,           1 },
+	{  "Thunderbird", NULL,         NULL,   1 << 3,       0,           1 },
 };
 
 /* layout(s) */
@@ -64,13 +64,13 @@ static const Layout layouts[] = {
 /* commands */
 // note that due to my laziness this is actually suboptimal, having commands execute shell scripts instead would entail more extensibility and ease of modification.
 /* applications */
-static const char *app_terminal[]    = { "urxvt", NULL };       // bound to mod-enter
-static const char *app_webbrowser[]  = { "palemoon", NULL };    // bound to mod-f
-static const char *app_filemanager[] = { "pcmanfm", NULL };     // bound to mod-g
-static const char *app_editor[]      = { "code", NULL };        // bound to mod-e
-static const char *app_messenger[]   = { "ripcord", NULL };     // bound to mod-d
-static const char *app_gamestore[]   = { "steam", NULL };       // bound to mod-s
-static const char *app_emailclient[] = { "thunderbird", NULL }; // bound to mod-t
+static const char *app_terminal[]    = { "urxvt", NULL };          // bound to mod-enter
+static const char *app_webbrowser[]  = { "palemoon", NULL };       // bound to mod-f
+static const char *app_filemanager[] = { "pcmanfm", NULL };        // bound to mod-g
+static const char *app_editor[]      = { "code", NULL };           // bound to mod-e
+static const char *app_messenger[]   = { "discord-canary", NULL }; // bound to mod-d
+static const char *app_gamestore[]   = { "steam", NULL };          // bound to mod-s
+static const char *app_emailclient[] = { "thunderbird", NULL };    // bound to mod-t
 /* screenshot */
 #define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"           // save location, lazy edition
 #define VIDEOSAVELOCATION "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm" // escrotum is dumb and requires a .webm extension to save at all, god i wish i used shell scripts instead of this garbage
