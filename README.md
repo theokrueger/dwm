@@ -6,23 +6,22 @@ designed for use by me, and as such will not make sense for anyone else
 i suggest making your own fork of dwm instead of using any other fork, as none of them will fit your use case as good as your own version will
 
 # directory
+- [dwm](#dwm)
+- [directory](#directory)
 - [philosophy](#philosophy)
 - [customisations](#customisations)
-    - [visual](#visual)
-    - [functional](#functional)
-    - [keybinds](#keybinds)
-        - [windowing](#windowing)
-        - [resolution](#resolution)
-            - [modifiers](#modifiers)
-            - [relative](#relative)
-            - [absolute](#absolute)
-        - [applications](#applications)
-        - [screenshot](#screenshot)
-        - [media-control](#media-control)
+  - [visual](#visual)
+  - [functional](#functional)
+  - [keybinds](#keybinds)
+    - [**windowing**](#windowing)
+    - [**resolution**](#resolution)
+    - [**applications**](#applications)
+    - [**screenshot**](#screenshot)
+    - [**media-control**](#media-control)
 - [installation](#installation)
-    - [dependencies](#dependencies)
-        - [required](#required)
-        - [optional](#optional)
+  - [dependencies](#dependencies)
+    - [**required**](#required)
+    - [**optional**](#optional)
 - [acknowledgements](#acknowledgements)
 
 # philosophy
@@ -37,7 +36,7 @@ keep it simple, stupid.
 * removed numbers from tags
 
 ## functional
-* tags 9 -> 5
+* tags 9 -> 6
 * snap pixel 32px -> 16px
 * keybinds (see below)
 * added [system tray patch](https://dwm.suckless.org/patches/systray/)
@@ -60,15 +59,15 @@ mod-ctrl-shift-arrow for rotations
 to be fixed l8r
 ### **applications**
 
-| key               | function          | requires |
-| ----------------- | ----------------- | -------- |
-| mod-shift-enter   | terminal          | urxvt    |
-| mod-shift-f       | web browser       | palemoon |
-| mod-shift-g       | file manager      | pcmanfm  |
-| mod-shift-e       | text editor       | code     |
-| media volume mute | media player      | elisa    |
-| mod-shift-d       | instant messenger | ripcord  |
-| mod-shift-s       | game launcher     | steam    |
+| key               | function          | requires   |
+| ----------------- | ----------------- | ---------- |
+| mod-shift-enter   | terminal          | urxvt      |
+| mod-shift-f       | web browser       | palemoon   |
+| mod-shift-g       | file manager      | xfe        |
+| mod-shift-e       | text editor       | code       |
+| media volume mute | media player      | clementine |
+| mod-shift-d       | instant messenger | discord    |
+| mod-shift-s       | game launcher     | steam      |
 
 ### **screenshot**
 you need to modify your save directory in config.h for these to work as intended.
@@ -95,31 +94,32 @@ you need to modify your save directory in config.h for these to work as intended
 ## dependencies
 ### **required**
 * [dmenu](https://archlinux.org/packages/community/x86_64/dmenu/)
-    * optionally use [my fork](https://github.com/theokrueger/dmenu) instead
 * [freetype2](https://archlinux.org/packages/extra/x86_64/freetype2/)
 * [libx11](https://archlinux.org/packages/extra/x86_64/libx11/)
 * [libxft](https://archlinux.org/packages/extra/x86_64/libxft/)
 * [libxinerama](https://archlinux.org/packages/extra/x86_64/libxinerama/)
-* [rxvt](https://aur.archlinux.org/packages/rxvt/)
+* [st](https://dwm.suckless.org/st/)
+    * optionally use [my fork](https://github.com/theokrueger/st) instead
 
 ```
-$ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama rxvt-unicode
+$ sudo pacman -S dmenu freetype2 libx11 libxft libxinerama st
 ```
 
 ### **optional**
 * [dwm-status](https://dwm.suckless.org/status_monitor/)
-    * optionally use [my fork](https://github.com/theokrueger/dwm-bar) instead
+    * optionally use [my version](https://github.com/theokrueger/dwm-bar) instead
+* [networkmanager-dmenu](https://aur.archlinux.org/packages/networkmanager-dmenu-git/)
 * [escrotum-git](https://aur.archlinux.org/packages/escrotum-git/)
 * [palemoon](https://aur.archlinux.org/packages/palemoon/)
-* [pcmanfm](https://archlinux.org/packages/community/x86_64/pcmanfm/)
+* [xfe](https://aur.archlinux.org/packages/xfe/)
 * [playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)
-* [elisa](https://archlinux.org/packages/extra/x86_64/elisa/)
+* [clementine](https://archlinux.org/packages/community/x86_64/clementine/)
 
 ```
 $ yay -S dwm-status-git dmenu pcmanfm playerctl escrotum-git palemoon elisa steam discord
 ```
 
 # acknowledgements
-[suckless.org](https://suckless.org/) for [dwm](https://dwm.suckless.org/), [actual fullscreen patch](https://dwm.suckless.org/patches/actualfullscreen/) and [systray patch](https://dwm.suckless.org/patches/systray/)
-
+[suckless.org](https://suckless.org/) for [dwm](https://dwm.suckless.org/)
 [freedesktop.org](https://freedesktop.org/) for [XF86keysym.h](https://cgit.freedesktop.org/xorg/proto/x11proto/tree/XF86keysym.h)
+
