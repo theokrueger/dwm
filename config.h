@@ -96,7 +96,7 @@ static const char *media_volume_down[] = {"playerctl", "-p", MEDIAPLAYER, "volum
 #define XF86XK_AudioMute 0x1008FF12
 static const char *media_launch_player[] = {MEDIAPLAYER, NULL}; // bound to media volume mute
 /* display scaling */
-#define PRIMARYDISPLAYSTRING "DVI-D-0" // display to apply scaling keybinds to
+#define PRIMARYDISPLAYSTRING "eDP-1" // display to apply scaling keybinds to
 #define DISPLAYFILTERTYPE "nearest"	   // change display scaling filtering. valid types: nearest,bilinear
 // 16:9
 static const char *scale0[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift- qwert
@@ -214,6 +214,7 @@ static Button buttons[] = {
 	{ClkStatusText, 0, Button2, spawn, {.v = app_terminal}},
 	{ClkClientWin, MODKEY, Button1, movemouse, {0}},
 	{ClkClientWin, MODKEY, Button2, togglefloating, {0}},
+	{ClkClientWin, MODKEY | ShiftMask, Button1, togglefloating, {0}},
 	{ClkClientWin, MODKEY, Button3, resizemouse, {0}},
 	{ClkTagBar, 0, Button1, view, {0}},
 	{ClkTagBar, 0, Button3, toggleview, {0}},
