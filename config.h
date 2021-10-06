@@ -10,8 +10,8 @@ static const int systraypinningfailfirst = 1; /* 1: if pinning fails, display sy
 static const int showsystray = 1;			  /* 0 means no systray */
 static const int showbar = 1;				  /* 0 means no bar */
 static const int topbar = 1;				  /* 0 means bottom bar */
-static const char *fonts[] = {"xft:Source Code Pro:pixelsize=11"};
-static const char dmenufont[] = "xft:Source Code Pro:pixelsize=11";
+static const char *fonts[] = {"Source Code Pro:Pro:pixelsize=10"};
+static const char dmenufont[] = "Source Code Pro:Pro:pixelsize=10";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#444444";
 static const char col_gray3[] = "#bbbbbb";
@@ -24,7 +24,7 @@ static const char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = {" ", " ", " ", " ", " ", " "};
+static const char *tags[] = {"", "", "", "", " ", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -52,8 +52,8 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask // OS
-#define TAGKEYS(KEY, TAG)                                          \
-	{MODKEY, KEY, view, {.ui = 1 << TAG}},                         \
+#define TAGKEYS(KEY, TAG)                                      \
+	{MODKEY, KEY, view, {.ui = 1 << TAG}},                     \
 	{MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}}, \
 	{MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},          \
 	{MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
@@ -99,13 +99,13 @@ static const char *media_launch_player[] = {MEDIAPLAYER, NULL}; // bound to medi
 #define PRIMARYDISPLAYSTRING "eDP-1" // display to apply scaling keybinds to
 #define DISPLAYFILTERTYPE "nearest"	   // change display scaling filtering. valid types: nearest,bilinear
 // 16:9
-static const char *scale0[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift- qwert
+static const char *scale0[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift-[qwert]
 static const char *scale1[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL};
 static const char *scale2[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL};
 static const char *scale3[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "854x480", "--filter", DISPLAYFILTERTYPE, NULL};
 static const char *scale4[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x360", "--filter", DISPLAYFILTERTYPE, NULL};
 // 4:3
-static const char *scale5[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1440x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift- asdfg
+static const char *scale5[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1440x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift-[asdfg]
 static const char *scale6[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x960", "--filter", DISPLAYFILTERTYPE, NULL};
 static const char *scale7[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL};
 static const char *scale8[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL};
