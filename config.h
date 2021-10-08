@@ -69,7 +69,7 @@ static const Layout layouts[] = {
 /* applications */
 static const char *app_terminal[] = {"st", NULL};			  // bound to mod-enter
 static const char *app_webbrowser[] = {"palemoon", NULL};	  // bound to mod-f
-static const char *app_filemanager[] = {"xfe", NULL};		  // bound to mod-g
+static const char *app_filemanager[] = {"pcmanfm", NULL};		  // bound to mod-g
 static const char *app_editor[] = {"code", NULL};			  // bound to mod-e
 static const char *app_messenger[] = {"discord", NULL};		  // bound to mod-d
 static const char *app_gamestore[] = {"steam", NULL};		  // bound to mod-s
@@ -126,7 +126,7 @@ static Key keys[] = {
 	/* applications */
 	{MODKEY, XK_Return, spawn, {.v = app_terminal}},		   // spawn terminal (st)
 	{MODKEY | ShiftMask, XK_f, spawn, {.v = app_webbrowser}},  // spawn browser (palemoon)
-	{MODKEY | ShiftMask, XK_g, spawn, {.v = app_filemanager}}, // spawn file manager (xfe)
+	{MODKEY | ShiftMask, XK_g, spawn, {.v = app_filemanager}}, // spawn file manager (pcmanfm)
 	{MODKEY | ShiftMask, XK_e, spawn, {.v = app_editor}},	   // spawn editor (code)
 	{MODKEY | ShiftMask, XK_d, spawn, {.v = app_messenger}},   // spawn instant messenger (discord)
 	{MODKEY | ShiftMask, XK_s, spawn, {.v = app_gamestore}},   // spawn game launcher (steam)

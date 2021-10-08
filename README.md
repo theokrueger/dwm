@@ -63,7 +63,7 @@ to be fixed l8r
 | ----------------- | ----------------- | ---------- |
 | mod-shift-enter   | terminal          | urxvt      |
 | mod-shift-f       | web browser       | palemoon   |
-| mod-shift-g       | file manager      | xfe        |
+| mod-shift-g       | file manager      | pcmanfm    |
 | mod-shift-e       | text editor       | code       |
 | media volume mute | media player      | clementine |
 | mod-shift-d       | instant messenger | discord    |
