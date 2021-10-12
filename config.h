@@ -96,25 +96,25 @@ static const char *media_volume_down[] = {"playerctl", "-p", MEDIAPLAYER, "volum
 #define XF86XK_AudioMute 0x1008FF12
 static const char *media_launch_player[] = {MEDIAPLAYER, NULL}; // bound to media volume mute
 /* display scaling */
-#define PRIMARYDISPLAYSTRING "eDP-1" // display to apply scaling keybinds to
+#define PRIMARYDISPLAY "DP-0" // display to apply scaling keybinds to, this short script should return string of primary display.
 #define DISPLAYFILTERTYPE "nearest"	   // change display scaling filtering. valid types: nearest,bilinear
 // 16:9
-static const char *scale0[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift-[qwert]
-static const char *scale1[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL};
-static const char *scale2[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL};
-static const char *scale3[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "854x480", "--filter", DISPLAYFILTERTYPE, NULL};
-static const char *scale4[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x360", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale0[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift-[qwert]
+static const char *scale1[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale2[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "960x540", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale3[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "854x480", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale4[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "640x360", "--filter", DISPLAYFILTERTYPE, NULL};
 // 4:3
-static const char *scale5[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1440x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift-[asdfg]
-static const char *scale6[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1280x960", "--filter", DISPLAYFILTERTYPE, NULL};
-static const char *scale7[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL};
-static const char *scale8[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL};
-static const char *scale9[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale5[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "1440x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift-[asdfg]
+static const char *scale6[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "1280x960", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale7[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "1024x768", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale8[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "800x600", "--filter", DISPLAYFILTERTYPE, NULL};
+static const char *scale9[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "640x480", "--filter", DISPLAYFILTERTYPE, NULL};
 /* display rotation */
-static const char *rot0[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "normal", NULL}; // bound to mod-ctrl-shift-arrow
-static const char *rot1[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "inverted", NULL};
-static const char *rot2[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "left", NULL};
-static const char *rot3[] = {"xrandr", "--output", PRIMARYDISPLAYSTRING, "--rotate", "right", NULL};
+static const char *rot0[] = {"xrandr", "--output", PRIMARYDISPLAY, "--rotate", "normal", NULL}; // bound to mod-ctrl-shift-arrow
+static const char *rot1[] = {"xrandr", "--output", PRIMARYDISPLAY, "--rotate", "inverted", NULL};
+static const char *rot2[] = {"xrandr", "--output", PRIMARYDISPLAY, "--rotate", "left", NULL};
+static const char *rot3[] = {"xrandr", "--output", PRIMARYDISPLAY, "--rotate", "right", NULL};
 /* demenu commands */
 static char dmenumon[2] = "0";																																				 /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL};				 // launch dmenu
