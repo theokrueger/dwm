@@ -68,7 +68,10 @@ static const Layout layouts[] = {
 // note that due to my laziness this is actually suboptimal, having commands execute shell scripts instead would entail more extensibility and ease of modification.
 /* applications */
 static const char *app_terminal[] = {"st", NULL};			  // bound to mod-enter
-static const char *app_webbrowser[] = {"firefox", NULL};	  // bound to mod-f
+#define PRIVATEBROWSERPROFILE "userjs"
+#define SAVEDBROWSERPROFILE "default"
+static const char *app_webbrowser[] = {"firefox", "-P", PRIVATEBROWSERPROFILE, NULL};	  // bound to mod-f
+static const char *app_webbrowser2[] = {"firefox", "-P", SAVEDBROWSERPROFILE, NULL};	  // bound to mod-shift-f
 static const char *app_filemanager[] = {"pcmanfm", NULL};	  // bound to mod-g
 static const char *app_editor[] = {"code", NULL};			  // bound to mod-e
 static const char *app_messenger[] = {"discord", NULL};		  // bound to mod-d
@@ -76,11 +79,9 @@ static const char *app_gamestore[] = {"steam", NULL};		  // bound to mod-s
 static const char *app_emailclient[] = {"thunderbird", NULL}; // bound to mod-t
 /* screenshot */
 #define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"				  // save location, lazy edition
-#define VIDEOSAVELOCATION "/home/theo/Pictures/screenshots/captures/%y-%m-%d-%H:%M:%S.webm"		  // escrotum is dumb and requires a .webm extension to save at all, god i wish i used shell scripts instead of this garbage
-static const char *screenshot_full[] = {"escrotum", IMAGESAVELOCATION, NULL};					  // bound to mod-prtsc
-static const char *screenshot_select[] = {"escrotum", IMAGESAVELOCATION, "-s", NULL};			  // bound to mod-shift-prtsc
-static const char *screenshot_select_clipboard[] = {"escrotum", "-s", "-C", NULL};				  // bound to mod-ctrl-prtsc
-static const char *screenshot_select_video[] = {"escrotum", VIDEOSAVELOCATION, "-s", "-r", NULL}; // bound to mod-ctrl-shift-prtsc, stop with ctrl-alt-s
+static const char *screenshot_full[] = {"escrotum", IMAGESAVELOCATION, NULL};					  // bound to mod-shift-s
+static const char *screenshot_select[] = {"escrotum", IMAGESAVELOCATION, "-s", NULL};			  // bound to mod-ctrl-s
+static const char *screenshot_select_clipboard[] = {"escrotum", "-s", "-C", NULL};				  // bound to mod-ctrl-shift-s
 /* media control */
 #define MEDIAPLAYER "clementine"
 #define XF86XK_AudioNext 0x1008FF17
@@ -96,8 +97,8 @@ static const char *media_volume_down[] = {"playerctl", "-p", MEDIAPLAYER, "volum
 #define XF86XK_AudioMute 0x1008FF12
 static const char *media_launch_player[] = {MEDIAPLAYER, NULL}; // bound to media volume mute
 /* display scaling */
-#define PRIMARYDISPLAY "DP-0" // display to apply scaling keybinds to, this short script should return string of primary display.
-#define DISPLAYFILTERTYPE "nearest"	   // change display scaling filtering. valid types: nearest,bilinear
+#define PRIMARYDISPLAY "DP-0"			// display to apply scaling keybinds to, this short script should return string of primary display.
+#define DISPLAYFILTERTYPE "nearest"		// change display scaling filtering. valid types: nearest,bilinear
 // 16:9
 static const char *scale0[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "1920x1080", "--filter", DISPLAYFILTERTYPE, NULL}; // bound to mod-ctrl-shift-[qwert]
 static const char *scale1[] = {"xrandr", "--output", PRIMARYDISPLAY, "--scale-from", "1280x720", "--filter", DISPLAYFILTERTYPE, NULL};
@@ -124,33 +125,33 @@ static Key keys[] = {
 	/* added keys */
 	// commands i have added or modified from defaults
 	/* applications */
-	{MODKEY, XK_Return, spawn, {.v = app_terminal}},		   // spawn terminal (st)
-	{MODKEY | ShiftMask, XK_f, spawn, {.v = app_webbrowser}},  // spawn browser (firefox)
-	{MODKEY | ShiftMask, XK_g, spawn, {.v = app_filemanager}}, // spawn file manager (pcmanfm)
-	{MODKEY | ShiftMask, XK_e, spawn, {.v = app_editor}},	   // spawn editor (code)
-	{MODKEY | ShiftMask, XK_d, spawn, {.v = app_messenger}},   // spawn instant messenger (discord)
-	{MODKEY | ShiftMask, XK_s, spawn, {.v = app_gamestore}},   // spawn game launcher (steam)
-	{MODKEY | ShiftMask, XK_t, spawn, {.v = app_emailclient}}, // spawn email client (thunderbird)
-	{MODKEY, XK_o, spawn, {.v = app_dmenu_nm}},				   // spawn networkmanager_dmenu
+	{MODKEY, XK_Return, spawn, {.v = app_terminal}},			// spawn terminal (st)
+	{MODKEY, XK_f, spawn, {.v = app_webbrowser}},				// spawn private browser (firefox)
+	{MODKEY | ShiftMask, XK_f, spawn, {.v = app_webbrowser2}},	// spawn public browser (firefox)
+	{MODKEY, XK_g, spawn, {.v = app_filemanager}},				// spawn file manager (pcmanfm)
+	{MODKEY, XK_e, spawn, {.v = app_editor}},					// spawn editor (code)
+	{MODKEY, XK_d, spawn, {.v = app_messenger}},				// spawn instant messenger (discord)
+	{MODKEY, XK_s, spawn, {.v = app_gamestore}},				// spawn game launcher (steam)
+	{MODKEY, XK_t, spawn, {.v = app_emailclient}},				// spawn email client (thunderbird)
+	{MODKEY, XK_o, spawn, {.v = app_dmenu_nm}},					// spawn networkmanager_dmenu
 	/* screenshot */
-	{MODKEY, XK_Print, spawn, {.v = screenshot_full}},									 // take full screenshot (escrotum)
-	{MODKEY | ShiftMask, XK_Print, spawn, {.v = screenshot_select}},					 // take screenshot of selection (escrotum)
-	{MODKEY | ControlMask, XK_Print, spawn, {.v = screenshot_select_clipboard}},		 // take screenshot of selection and only copy to clipboard (escrotum)
-	{MODKEY | ControlMask | ShiftMask, XK_Print, spawn, {.v = screenshot_select_video}}, // record screen selection, stop with ctl ctrl-alt-s (escrotum)
+	{MODKEY | ShiftMask, XK_Print, spawn, {.v = screenshot_full}},								// take full screenshot (escrotum)
+	{MODKEY | ControlMask, XK_Print, spawn, {.v = screenshot_select}},							// take screenshot of selection (escrotum)
+	{MODKEY | ControlMask | ShiftMask, XK_Print, spawn, {.v = screenshot_select_clipboard}},	// take screenshot of selection and only copy to clipboard (escrotum)
 	/* media control */
-	{0, XF86XK_AudioNext, spawn, {.v = media_next}},			   // media player next entry (playerctl)
-	{0, XF86XK_AudioPrev, spawn, {.v = media_previous}},		   // media player previous entry (playerctl)
-	{0, XF86XK_AudioPlay, spawn, {.v = media_playpause}},		   // media player pause/play (playerctl)
-	{0, XF86XK_AudioRaiseVolume, spawn, {.v = media_volume_up}},   // media player increase volume by .05 (playerctl)
-	{0, XF86XK_AudioLowerVolume, spawn, {.v = media_volume_down}}, // media player decrease volume by .05 (playerctl)
-	{0, XF86XK_AudioMute, spawn, {.v = media_launch_player}},	   // spawn audio player (clementine)
+	{0, XF86XK_AudioNext, spawn, {.v = media_next}},				// media player next entry (playerctl)
+	{0, XF86XK_AudioPrev, spawn, {.v = media_previous}},			// media player previous entry (playerctl)
+	{0, XF86XK_AudioPlay, spawn, {.v = media_playpause}},			// media player pause/play (playerctl)
+	{0, XF86XK_AudioRaiseVolume, spawn, {.v = media_volume_up}},	// media player increase volume by .05 (playerctl)
+	{0, XF86XK_AudioLowerVolume, spawn, {.v = media_volume_down}},	// media player decrease volume by .05 (playerctl)
+	{0, XF86XK_AudioMute, spawn, {.v = media_launch_player}},		// spawn audio player (clementine)
 	/* windowing */
 	{MODKEY, XK_7, view, {.ui = ~0}},				// duplicate of XK_0
 	{MODKEY | ShiftMask, XK_7, tag, {.ui = ~0}},	// duplicate of XK_0
-	{MODKEY | ShiftMask, XK_m, togglefullscr, {0}}, // toggles fullscreen on a window
+	{MODKEY | ShiftMask, XK_m, togglefullscr, {0}},	// toggles fullscreen on a window
 	/* resolution */
 	// 19:9
-	{MODKEY | ControlMask | ShiftMask, XK_q, spawn, {.v = scale0}}, // req xrandr
+	{MODKEY | ControlMask | ShiftMask, XK_q, spawn, {.v = scale0}},	// req xrandr
 	{MODKEY | ControlMask | ShiftMask, XK_w, spawn, {.v = scale1}},
 	{MODKEY | ControlMask | ShiftMask, XK_e, spawn, {.v = scale2}},
 	{MODKEY | ControlMask | ShiftMask, XK_r, spawn, {.v = scale3}},
@@ -162,7 +163,7 @@ static Key keys[] = {
 	{MODKEY | ControlMask | ShiftMask, XK_f, spawn, {.v = scale8}},
 	{MODKEY | ControlMask | ShiftMask, XK_g, spawn, {.v = scale9}},
 	/* rotation */
-	{MODKEY | ControlMask | ShiftMask, XK_Up, spawn, {.v = rot0}}, // req xrandr
+	{MODKEY | ControlMask | ShiftMask, XK_Up, spawn, {.v = rot0}},	// req xrandr
 	{MODKEY | ControlMask | ShiftMask, XK_Down, spawn, {.v = rot1}},
 	{MODKEY | ControlMask | ShiftMask, XK_Left, spawn, {.v = rot2}},
 	{MODKEY | ControlMask | ShiftMask, XK_Right, spawn, {.v = rot3}},
