@@ -78,9 +78,7 @@ static const char *app_messenger[] = {"discord", NULL};		  // bound to mod-d
 static const char *app_gamestore[] = {"steam", NULL};		  // bound to mod-s
 static const char *app_emailclient[] = {"thunderbird", NULL}; // bound to mod-t
 /* screenshot */
-#define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"				  // save location, lazy edition
-static const char *screenshot_select[] = {"escrotum", IMAGESAVELOCATION, "-s", NULL};			  // bound to mod-ctrl-s
-static const char *screenshot_select_clipboard[] = {"escrotum", "-s", "-C", NULL};				  // bound to mod-shift-s
+static const char *screenshot_select_clipboard[] = {"escrotum", "-s", "-C", NULL};				  // bound to mod-ctrl-s
 /* media control */
 #define MEDIAPLAYER "clementine"
 #define XF86XK_AudioNext 0x1008FF17
@@ -122,20 +120,18 @@ static const char *app_dmenu_nm[] = {"networkmanager_dmenu", "-m", dmenumon, "-f
 
 static Key keys[] = {
 	/* added keys */
-	// commands i have added or modified from defaults
 	/* applications */
-	{MODKEY, XK_Return, spawn, {.v = app_terminal}},			// spawn terminal (st)
-	{MODKEY, XK_f, spawn, {.v = app_webbrowser}},				// spawn private browser (firefox)
-	{MODKEY | ShiftMask, XK_f, spawn, {.v = app_webbrowser2}},	// spawn public browser (firefox)
-	{MODKEY, XK_g, spawn, {.v = app_filemanager}},				// spawn file manager (pcmanfm)
-	{MODKEY, XK_e, spawn, {.v = app_editor}},					// spawn editor (code)
-	{MODKEY, XK_d, spawn, {.v = app_messenger}},				// spawn instant messenger (discord)
-	{MODKEY, XK_s, spawn, {.v = app_gamestore}},				// spawn game launcher (steam)
-	{MODKEY, XK_t, spawn, {.v = app_emailclient}},				// spawn email client (thunderbird)
-	{MODKEY, XK_o, spawn, {.v = app_dmenu_nm}},					// spawn networkmanager_dmenu
+	{MODKEY, XK_Return, spawn, {.v = app_terminal}},							// spawn terminal (st)
+	{MODKEY | ControlMask | ShiftMask, XK_f, spawn, {.v = app_webbrowser}},		// spawn private browser (firefox)
+	{MODKEY | ShiftMask, XK_f, spawn, {.v = app_webbrowser2}},					// spawn public browser (firefox)
+	{MODKEY | ShiftMask, XK_g, spawn, {.v = app_filemanager}},					// spawn file manager (pcmanfm)
+	{MODKEY | ShiftMask, XK_e, spawn, {.v = app_editor}},						// spawn editor (code)
+	{MODKEY | ShiftMask, XK_d, spawn, {.v = app_messenger}},					// spawn instant messenger (discord)
+	{MODKEY | ShiftMask, XK_s, spawn, {.v = app_gamestore}},					// spawn game launcher (steam)
+	{MODKEY | ShiftMask, XK_t, spawn, {.v = app_emailclient}},					// spawn email client (thunderbird)
+	{MODKEY | ShiftMask, XK_o, spawn, {.v = app_dmenu_nm}},						// spawn networkmanager_dmenu
 	/* screenshot */
-	{MODKEY | ControlMask, XK_s, spawn, {.v = screenshot_select}},			// take screenshot of selection (escrotum)
-	{MODKEY | ShiftMask, XK_s, spawn, {.v = screenshot_select_clipboard}},	// take screenshot of selection and only copy to clipboard (escrotum)
+	{MODKEY | ControlMask, XK_s, spawn, {.v = screenshot_select_clipboard}},	// take screenshot of selection and only copy to clipboard (escrotum)
 	/* media control */
 	{0, XF86XK_AudioNext, spawn, {.v = media_next}},				// media player next entry (playerctl)
 	{0, XF86XK_AudioPrev, spawn, {.v = media_previous}},			// media player previous entry (playerctl)
