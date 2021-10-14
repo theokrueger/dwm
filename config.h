@@ -79,9 +79,8 @@ static const char *app_gamestore[] = {"steam", NULL};		  // bound to mod-s
 static const char *app_emailclient[] = {"thunderbird", NULL}; // bound to mod-t
 /* screenshot */
 #define IMAGESAVELOCATION "/home/theo/Pictures/screenshots/%y-%m-%d-%H:%M:%S.png"				  // save location, lazy edition
-static const char *screenshot_full[] = {"escrotum", IMAGESAVELOCATION, NULL};					  // bound to mod-shift-s
 static const char *screenshot_select[] = {"escrotum", IMAGESAVELOCATION, "-s", NULL};			  // bound to mod-ctrl-s
-static const char *screenshot_select_clipboard[] = {"escrotum", "-s", "-C", NULL};				  // bound to mod-ctrl-shift-s
+static const char *screenshot_select_clipboard[] = {"escrotum", "-s", "-C", NULL};				  // bound to mod-shift-s
 /* media control */
 #define MEDIAPLAYER "clementine"
 #define XF86XK_AudioNext 0x1008FF17
@@ -135,9 +134,8 @@ static Key keys[] = {
 	{MODKEY, XK_t, spawn, {.v = app_emailclient}},				// spawn email client (thunderbird)
 	{MODKEY, XK_o, spawn, {.v = app_dmenu_nm}},					// spawn networkmanager_dmenu
 	/* screenshot */
-	{MODKEY | ShiftMask, XK_Print, spawn, {.v = screenshot_full}},								// take full screenshot (escrotum)
-	{MODKEY | ControlMask, XK_Print, spawn, {.v = screenshot_select}},							// take screenshot of selection (escrotum)
-	{MODKEY | ControlMask | ShiftMask, XK_Print, spawn, {.v = screenshot_select_clipboard}},	// take screenshot of selection and only copy to clipboard (escrotum)
+	{MODKEY | ControlMask, XK_s, spawn, {.v = screenshot_select}},			// take screenshot of selection (escrotum)
+	{MODKEY | ShiftMask, XK_s, spawn, {.v = screenshot_select_clipboard}},	// take screenshot of selection and only copy to clipboard (escrotum)
 	/* media control */
 	{0, XF86XK_AudioNext, spawn, {.v = media_next}},				// media player next entry (playerctl)
 	{0, XF86XK_AudioPrev, spawn, {.v = media_previous}},			// media player previous entry (playerctl)

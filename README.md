@@ -62,7 +62,7 @@ to be fixed l8r
 | key               | function          | requires   |
 | ----------------- | ----------------- | ---------- |
 | mod-shift-enter   | terminal          | urxvt      |
-| mod-shift-f       | web browser       | palemoon   |
+| mod-shift-f       | web browser       | firefox    |
 | mod-shift-g       | file manager      | pcmanfm    |
 | mod-shift-e       | text editor       | code       |
 | media volume mute | media player      | clementine |
@@ -71,12 +71,10 @@ to be fixed l8r
 
 ### **screenshot**
 you need to modify your save directory in config.h for these to work as intended.
-| key                  | function                          | requires |
-| -------------------- | --------------------------------- | -------- |
-| mod-print            | screenshot*                       | escrotum |
-| mod-shift-print      | screenshot selection*             | escrotum |
-| mod-ctrl-print       | screenshot selection to clipboard | escrotum |
-| mod-ctrl-shift-print | screen record selection*          | escrotum |
+| key         | function                          | requires |
+| ----------- | --------------------------------- | -------- |
+| mod-ctrl-s  | screenshot selection*             | escrotum |
+| mod-shift-s | screenshot selection to clipboard | escrotum |
 
 *requires setting output directory in config.h
 
