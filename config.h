@@ -122,8 +122,8 @@ static Key keys[] = {
 	/* added keys */
 	/* applications */
 	{MODKEY, XK_Return, spawn, {.v = app_terminal}},							// spawn terminal (st)
-	{MODKEY | ControlMask | ShiftMask, XK_f, spawn, {.v = app_webbrowser}},		// spawn private browser (firefox)
-	{MODKEY | ShiftMask, XK_f, spawn, {.v = app_webbrowser2}},					// spawn public browser (firefox)
+	{MODKEY | ShiftMask, XK_f, spawn, {.v = app_webbrowser}},					// spawn private browser (firefox)
+	{MODKEY | ControlMask, XK_f, spawn, {.v = app_webbrowser2}},				// spawn public browser (firefox)
 	{MODKEY | ShiftMask, XK_g, spawn, {.v = app_filemanager}},					// spawn file manager (pcmanfm)
 	{MODKEY | ShiftMask, XK_e, spawn, {.v = app_editor}},						// spawn editor (code)
 	{MODKEY | ShiftMask, XK_d, spawn, {.v = app_messenger}},					// spawn instant messenger (discord)
