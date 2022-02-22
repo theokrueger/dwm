@@ -62,7 +62,6 @@ static const Layout layouts[] = {
 	}
 
 /* commands */
-// note that due to my laziness this is actually suboptimal, having commands execute shell scripts instead would entail more extensibility and ease of modification.
 /* applications */
 static const char *app_terminal[] = {"st", NULL};
 static const char *app_webbrowser[] = {"firefox", NULL};
@@ -70,8 +69,10 @@ static const char *app_webbrowser2[] = {"chromium", NULL};
 static const char *app_filemanager[] = {"pcmanfm", NULL};
 static const char *app_editor[] = {"emacs", NULL};
 static const char *app_emailclient[] = {"thunderbird", NULL};
+
 /* screenshot */
 static const char *screenshot_select_clipboard[] = {"escrotum", "-s", "-C", NULL};
+
 /* media control */
 #define MEDIAPLAYER "strawberry"
 #define XF86XK_AudioNext 0x1008FF17
@@ -86,6 +87,11 @@ static const char *media_volume_up[] = {"playerctl", "-p", MEDIAPLAYER, "volume"
 static const char *media_volume_down[] = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.05-", NULL};
 #define XF86XK_AudioMute 0x1008FF12
 static const char *media_launch_player[] = {MEDIAPLAYER, NULL};
+
+/* brightness */
+static const char *brightness_up[] = {"doas", "brightnessctl", "s", "10%+", NULL};
+static const char *brightness_down[] = {"doas", "brightnessctl", "s", "10%-", NULL};
+
 /* demenu commands */
 static char dmenumon[2] = "0";																																				 /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL};				 // launch dmenu
@@ -101,6 +107,7 @@ static Key keys[] = {
 	{MODKEY | ShiftMask, XK_t, spawn, {.v = app_emailclient}},
 	{MODKEY | ShiftMask, XK_o, spawn, {.v = app_dmenu_nm}},
 	{MODKEY | ControlMask, XK_s, spawn, {.v = screenshot_select_clipboard}},
+
 	/* media control */
 	{0, XF86XK_AudioNext, spawn, {.v = media_next}},
 	{0, XF86XK_AudioPrev, spawn, {.v = media_previous}},
@@ -108,10 +115,16 @@ static Key keys[] = {
 	{0, XF86XK_AudioRaiseVolume, spawn, {.v = media_volume_up}},
 	{0, XF86XK_AudioLowerVolume, spawn, {.v = media_volume_down}},
 	{0, XF86XK_AudioMute, spawn, {.v = media_launch_player}},
+
+	/* brightness */
+	{MODKEY | ShiftMask, XK_Up, spawn, {.v = brightness_up}},
+	{MODKEY | ShiftMask, XK_Down, spawn, {.v = brightness_down}},
+
 	/* windowing */
 	{MODKEY, XK_7, view, {.ui = ~0}},				// duplicate of XK_0
 	{MODKEY | ShiftMask, XK_7, tag, {.ui = ~0}},	// duplicate of XK_0
 	{MODKEY | ShiftMask, XK_m, togglefullscr, {0}},	// toggles fullscreen on a window
+
 	/* default keys */
 	{MODKEY, XK_p, spawn, {.v = dmenucmd}},
 	{MODKEY, XK_b, togglebar, {0}},
