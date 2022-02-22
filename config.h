@@ -89,8 +89,8 @@ static const char *media_volume_down[] = {"playerctl", "-p", MEDIAPLAYER, "volum
 static const char *media_launch_player[] = {MEDIAPLAYER, NULL};
 
 /* brightness */
-static const char *brightness_up[] = {"doas", "brightnessctl", "s", "10%+", NULL};
-static const char *brightness_down[] = {"doas", "brightnessctl", "s", "10%-", NULL};
+static const char *brightness_up[] = {"doas", "brightnessctl", "s", "5%+", NULL};
+static const char *brightness_down[] = {"doas", "brightnessctl", "s", "5%-", NULL};
 
 /* demenu commands */
 static char dmenumon[2] = "0";																																				 /* component of dmenucmd, manipulated in spawn() */
