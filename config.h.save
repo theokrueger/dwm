@@ -96,7 +96,7 @@ static const char *brightness_down[] = {"doas", "brightnessctl", "s", "5%-", NUL
 /* demenu commands */
 static char dmenumon[2] = "0";																																				 /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL};				 // launch dmenu
-static const char *app_dmenu_nm[] = {"networkmanager_dmenu", "-l", "10", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL}; // launch dmenunm
+static const char *app_dmenu_nm[] = {"networkmanager_dmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_pink, "-sf", col_gray4, NULL}; // launch dmenunm
 
 static Key keys[] = {
 	/* applications */
