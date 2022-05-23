@@ -6,8 +6,6 @@ include config.mk
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
-all: options dwm
-
 options:
 	@echo dwm build options:
 	@echo "CFLAGS   = ${CFLAGS}"
@@ -25,6 +23,9 @@ config.h:
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
+laptop: ${OBJ}
+	${CC} -o $@ ${OBJ} ${LDFLAGS} -D laptop
+
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
 
@@ -36,7 +37,15 @@ dist: clean
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
 
-install: all
+install: options dwm
+	mkdir -p ${DESTDIR}${PREFIX}/bin
+	cp -f dwm ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
+	mkdir -p ${DESTDIR}${MANPREFIX}/man1
+	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
+	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
+
+install_laptop: options laptop
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
@@ -47,5 +56,3 @@ install: all
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
-
-.PHONY: all options clean dist install uninstall
