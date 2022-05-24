@@ -73,22 +73,23 @@ static const char *app_editor[]      = {"emacs", NULL};
 static const char *app_emailclient[] = {"thunderbird", NULL};
 // media control
 #define MEDIAPLAYER "strawberry"
-#define XF86XK_AudioNext 0x1008FF17
-static const char *media_next[] = {"playerctl", "-p", MEDIAPLAYER, "next", NULL};
-#define XF86XK_AudioPrev 0x1008FF16
-static const char *media_previous[] = {"playerctl", "-p", MEDIAPLAYER, "previous", NULL};
-#define XF86XK_AudioPlay 0x1008FF14
-static const char *media_playpause[] = {"playerctl", "-p", MEDIAPLAYER, "play-pause", NULL};
-#define XF86XK_AudioRaiseVolume 0x1008FF13
-static const char *media_volume_up[] = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.05+", NULL};
-#define XF86XK_AudioLowerVolume 0x1008FF11
-static const char *media_volume_down[] = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.05-", NULL};
-#define XF86XK_AudioMute 0x1008FF12
+#define XF86XK_AudioNext                 0x1008FF17
+#define XF86XK_AudioPrev                 0x1008FF16
+#define XF86XK_AudioPlay                 0x1008FF14
+#define XF86XK_AudioRaiseVolume          0x1008FF13
+#define XF86XK_AudioLowerVolume          0x1008FF11
+#define XF86XK_AudioMute                 0x1008FF12
+static const char *media_show_popup[]    = {MEDIAPLAYER, "-y", NULL};
+static const char *media_next[]          = {"playerctl", "-p", MEDIAPLAYER, "next", NULL};
+static const char *media_previous[]      = {"playerctl", "-p", MEDIAPLAYER, "previous", NULL};
+static const char *media_playpause[]     = {"playerctl", "-p", MEDIAPLAYER, "play-pause", NULL};
+static const char *media_volume_up[]     = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.05+", NULL};
+static const char *media_volume_down[]   = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.05-", NULL};
 static const char *media_launch_player[] = {MEDIAPLAYER, NULL};
 
-// (LAPTOP ONLY) super lazy brightness
+// (LAPTOP ONLY) super lazy brightness, edit your doas conf to use (lmfao!)
 #ifdef laptop
-static const char *brightness_up[] = {"doas", "brightnessctl", "s", "5%+", NULL};
+static const char *brightness_up[]   = {"doas", "brightnessctl", "s", "5%+", NULL};
 static const char *brightness_down[] = {"doas", "brightnessctl", "s", "5%-", NULL};
 #endif
 
@@ -109,11 +110,19 @@ static Key keys[] = {
         {MODKEY | ShiftMask, XK_o, spawn, {.v = app_dmenu_nm}},                   // spawn networkmanager dmenu
         /* media control */
         {0, XF86XK_AudioNext, spawn, {.v = media_next}},                          // media next track (bound to defined media player)
+        {0, XK_KP_Right, spawn, {.v = media_next}},                               // ^ see above ^
         {0, XF86XK_AudioPrev, spawn, {.v = media_previous}},                      // media previous track (bound to defined media player)
+        {0, XK_KP_Left, spawn, {.v = media_previous}},                            // ^ see above ^
         {0, XF86XK_AudioPlay, spawn, {.v = media_playpause}},                     // media pause/play (bound to defined media player)
+        {0, XK_KP_Enter, spawn, {.v = media_playpause}},                          // ^ see above ^
         {0, XF86XK_AudioRaiseVolume, spawn, {.v = media_volume_up}},              // media vol up (bound to defined media player)
+        {0, XK_KP_Up, spawn, {.v = media_volume_up}},                             // ^ see above ^
         {0, XF86XK_AudioLowerVolume, spawn, {.v = media_volume_down}},            // media vol down (bound to defined media player)
-        {0, XF86XK_AudioMute, spawn, {.v = media_launch_player}},                 // spawn defined media player
+        {0, XK_KP_Down, spawn, {.v = media_volume_down}},                         // ^ see above ^
+        {0, XF86XK_AudioMute, spawn, {.v = media_show_popup}},                    // show popup of media info (bound to defined media player)
+        {0, XK_KP_Insert, spawn, {.v = media_show_popup}},                        // ^ see above ^
+        {0 | ShiftMask, XF86XK_AudioMute, spawn, {.v = media_launch_player}},     // spawn defined media player
+        {0, XK_KP_Delete, spawn, {.v = media_launch_player}},                     // ^ see above ^
         /* (LAPTOP ONLY) brightness */
         #ifdef laptop
         {MODKEY | ShiftMask, XK_Up, spawn, {.v = brightness_up}},                 // brightness up (laptop)
