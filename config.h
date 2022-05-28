@@ -83,12 +83,12 @@ static const char *media_show_popup[]    = {MEDIAPLAYER, "-y", NULL};
 static const char *media_next[]          = {"playerctl", "-p", MEDIAPLAYER, "next", NULL};
 static const char *media_previous[]      = {"playerctl", "-p", MEDIAPLAYER, "previous", NULL};
 static const char *media_playpause[]     = {"playerctl", "-p", MEDIAPLAYER, "play-pause", NULL};
-static const char *media_volume_up[]     = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.05+", NULL};
-static const char *media_volume_down[]   = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.05-", NULL};
+static const char *media_volume_up[]     = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.03+", NULL};
+static const char *media_volume_down[]   = {"playerctl", "-p", MEDIAPLAYER, "volume", "0.03-", NULL};
 static const char *media_launch_player[] = {MEDIAPLAYER, NULL};
-
-// (LAPTOP ONLY) super lazy brightness, edit your doas conf to use (lmfao!)
+// LAPTOP ONLY
 #ifdef laptop
+// super lazy brightness, edit your doas conf to use (lmfao!)
 static const char *brightness_up[]   = {"doas", "brightnessctl", "s", "5%+", NULL};
 static const char *brightness_down[] = {"doas", "brightnessctl", "s", "5%-", NULL};
 #endif
@@ -123,11 +123,6 @@ static Key keys[] = {
         {0, XK_KP_Insert, spawn, {.v = media_show_popup}},                        // ^ see above ^
         {0 | ShiftMask, XF86XK_AudioMute, spawn, {.v = media_launch_player}},     // spawn defined media player
         {0, XK_KP_Delete, spawn, {.v = media_launch_player}},                     // ^ see above ^
-        /* (LAPTOP ONLY) brightness */
-        #ifdef laptop
-        {MODKEY | ShiftMask, XK_Up, spawn, {.v = brightness_up}},                 // brightness up (laptop)
-        {MODKEY | ShiftMask, XK_Down, spawn, {.v = brightness_down}},             // brightness down (laptop)
-        #endif
         /* layout */
         {MODKEY | ShiftMask, XK_m, togglefullscr, {0}},                           // toggle fullscreen on a window
         {MODKEY, XK_b, togglebar, {0}},                                           // toggle showing top bar
@@ -161,6 +156,12 @@ static Key keys[] = {
         {MODKEY | ShiftMask, XK_period, tagmon, {.i = +1}},                       // send current window to next monitor
         /* meta */
         {MODKEY | ShiftMask, XK_c, quit, {0}},                                    // quit dwm
+        /* LAPTOP ONLY */
+        #ifdef laptop
+        /* brightness */
+        {MODKEY | ShiftMask, XK_Up, spawn, {.v = brightness_up}},                 // brightness up (laptop)
+        {MODKEY | ShiftMask, XK_Down, spawn, {.v = brightness_down}},             // brightness down (laptop)
+        #endif
 };
 
 /* button definitions, no touchy! */
